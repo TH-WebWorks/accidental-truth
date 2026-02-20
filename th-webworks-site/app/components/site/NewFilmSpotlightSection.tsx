@@ -21,8 +21,10 @@ export function NewFilmSpotlightSection() {
               />
             </div>
             <div className="spotlight-body">
-              <p className="spotlight-label">New Film Spotlight</p>
-              <h2 className="spotlight-title">Accidental Truth: N E X T</h2>
+              <div className="spotlight-body-header">
+                <p className="spotlight-label">New Film Spotlight</p>
+                <h2 className="spotlight-title">Accidental Truth: N E X T</h2>
+              </div>
               <p className="spotlight-synopsis">{MOCK.newFilmSynopsis}</p>
               <div className="spotlight-video">
                 <iframe
@@ -32,7 +34,7 @@ export function NewFilmSpotlightSection() {
                   allowFullScreen
                 />
               </div>
-              <a href="#mailing" className="hero-btn hero-btn-primary">
+              <a href="#mailing" className="hero-btn hero-btn-primary spotlight-cta">
                 Get updates
               </a>
             </div>

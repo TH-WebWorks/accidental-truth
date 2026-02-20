@@ -1,0 +1,13 @@
+export { LegacyHeroUfo } from "./legacy-hero";
+export { WatchLinks } from "./watch-links";
+export { ImminentBookCallout } from "./imminent-book-callout";
+export { LegacyDescription } from "./legacy-description";
+export { DvdBlurayPromo } from "./dvd-bluray-promo";
+export { SwagCallout } from "./swag-callout";
+export { MerchGrid } from "./merch-grid";
+export { GalleryGrid } from "./gallery-grid";
+export { CastList } from "./cast-list";
+export { CrewList } from "./crew-list";
+export { AwardsLaurels } from "./awards-laurels";
+export { HashtagsLine } from "./hashtags-line";
+export { MoreLikeThis } from "./more-like-this";

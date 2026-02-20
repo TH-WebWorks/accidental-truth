@@ -39,6 +39,9 @@ export const ORIGINAL_FILM = {
   },
   swagIntro:
     "Get the SWAG! Although the film is done, we still need your help. Our animation team is in the Ukraine. Despite the war, the guys kept working as best they could. They endured power outages, defense deployments, missile flying over their homes, and still managed to deliver some of the best custom animation ever in an independent UFO Documentary. Both team members lost equipment due to missile attacks and power fluctuations. They need new computers and additional support. A portion of the proceeds from our SWAG sales will go to getting this done for them. The “Accidental Truth” collection is coming online. We are adding new merch daily. Our movie poster art is really cool and people are loving the T-shirts! The shirts are 100% Soft ringspun Gildan Cotton. You'll love yours! FREE SHIPPING IN THE US! Get your SWAG now and we'll throw in a free month of access to MUFON TV. You'll also get access to the “Accidental Truth Insider” section, where deeper interviews and extra material will be found.",
+  laurelsIntro: "Festival and contest awards and selections. Our laurels:",
+  galleryTitle: "Gallery",
+  galleryLead: "Here are some pics from the film! Stay tuned and come back often—this page will be updated frequently with insider info and great content.",
 };
 
 export const CAST = [
@@ -89,10 +92,11 @@ export const MOCK = {
   newFilmSynopsis:
     "The next chapter in the Accidental Truth series continues where the first film left off: insider testimony, congressional pressure, and the ongoing push for disclosure. Same team, same commitment to putting the story on the record.",
   merchItems: [
-    { title: "Limited Edition Accidental Truth T-Shirt", price: "$24.99 – $26.99", href: WATCH_ORIGINAL },
+    { title: "The Limited Edition Accidental Truth T-Shirt", price: "$24.99 – $26.99", href: WATCH_ORIGINAL },
     { title: "Accidental Truth 15 oz Coffee Mug", price: "$18.75", href: WATCH_ORIGINAL },
-    { title: "Accidental Truth Mouse Pad", price: "$12.50", href: WATCH_ORIGINAL },
-    { title: "DVD & Blu-Ray (with bonus features)", price: "$24.95 – $29.95", href: WATCH_ORIGINAL },
+    { title: "The \"Accidental Truth\" Mouse Pad", price: "$12.50", href: WATCH_ORIGINAL },
+    { title: "Matthew Modine – Framed Autographed Poster 11×17 (FREE Shipping)", price: "$95", href: WATCH_ORIGINAL },
+    { title: "\"Accidental Truth - UFO Revelations\" Now on DVD & Blu-Ray", price: "$24.95 – $29.95", href: WATCH_ORIGINAL },
   ],
   merchNote:
     "A portion of SWAG proceeds supports our animation team. FREE SHIPPING in the US. Store embed (e.g. Shopify) will replace this when ready.",

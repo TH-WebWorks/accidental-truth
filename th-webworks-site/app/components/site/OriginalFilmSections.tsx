@@ -8,6 +8,7 @@ import {
   FESTIVAL_LAURELS,
   META_ORIGINAL,
   ORIGINAL_FILM,
+  TRAILER_URL,
   WATCH_ORIGINAL,
   WHERE_TO_WATCH,
 } from "../../data/siteContent";
@@ -16,16 +17,17 @@ import heroUfoRevelations from "../../../assets/hero_at_ufo_revelations.webp";
 export function OriginalFilmSections() {
   return (
     <>
-      <SectionShell variant="gridGlow" size="md" divider="both" className="sec-divider-wrap">
-        <Container>
-          <div className="divider-content">
-            <h2 className="divider-title">UFO REVELATIONS</h2>
-            <p className="divider-desc">Accidental Truth (2023) — watch below</p>
-          </div>
-        </Container>
-      </SectionShell>
+      <section id="original-film" className="original-film-block">
+        <div className="hero-divider-bar" aria-label="Section">
+          <Container>
+            <div className="divider-content">
+              <h2 className="divider-title">UFO REVELATIONS</h2>
+              <p className="divider-desc">Accidental Truth (2023) — watch below</p>
+            </div>
+          </Container>
+        </div>
 
-      <section className="hero-block hero-original" id="original-film">
+        <div className="hero-block hero-original">
         <div className="hero-block-bg">
           <div className="hero-block-bg-inner">
             <Image
@@ -61,11 +63,26 @@ export function OriginalFilmSections() {
             </div>
           </div>
         </div>
+        </div>
       </section>
 
       <RevealOnScroll>
         <SectionShell id="original-synopsis" variant="default" size="lg" divider="top" className="sec-about sec-directors sec-synopsis">
           <Container>
+            <div id="trailer" className="synopsis-trailer-block">
+              <p className="sec-label">Watch</p>
+              <h2 className="sec-heading">Trailer &amp; Media</h2>
+              <p className="sec-lead">Watch the Accidental Truth trailer.</p>
+              <div className="media-block">
+                <iframe
+                  title="Accidental Truth trailer"
+                  src={TRAILER_URL}
+                  allow="autoplay; fullscreen; picture-in-picture; clipboard-write; encrypted-media; web-share"
+                  allowFullScreen
+                  className="media-embed"
+                />
+              </div>
+            </div>
             <div className="ufo-frame ufo-frame--wide">
               <div className="ufo-pairs-grid">
                 <article className="ufo-card ufo-pair ufo-pair--film">
@@ -137,6 +154,22 @@ export function OriginalFilmSections() {
                 </article>
               </div>
             </div>
+
+            <div id="gallery" className="ufo-gallery-block">
+              <p className="sec-label">{ORIGINAL_FILM.galleryTitle}</p>
+              <h2 className="sec-heading">From the Film</h2>
+              <p className="sec-lead ufo-gallery-lead">{ORIGINAL_FILM.galleryLead}</p>
+              <div className="ufo-gallery-grid" aria-hidden="true">
+                {[1, 2, 3, 4, 5, 6].map((i) => (
+                  <div key={i} className="ufo-gallery-cell" />
+                ))}
+              </div>
+              <p className="ufo-gallery-cta">
+                <a href={WATCH_ORIGINAL} target="_blank" rel="noreferrer" className="hero-btn hero-btn-outline hero-btn-sm">
+                  View gallery on MUFON TV
+                </a>
+              </p>
+            </div>
           </Container>
         </SectionShell>
       </RevealOnScroll>
@@ -144,7 +177,7 @@ export function OriginalFilmSections() {
       <RevealOnScroll>
         <SectionShell id="dvd-bluray" variant="default" size="lg" divider="top" className="sec-directors sec-dvd">
           <Container>
-            <div className="ufo-frame">
+            <div className="ufo-frame ufo-frame--dvd">
               <p className="sec-label">UFO Revelations</p>
               <h2 className="sec-heading">Physical Media, Credits &amp; Awards</h2>
               <div className="ufo-bento ufo-bento--details">
@@ -176,6 +209,10 @@ export function OriginalFilmSections() {
                     Add to Cart (MUFON TV)
                   </a>
                 </article>
+
+                <div className="ufo-frame-subhead" aria-hidden="true">
+                  Credits &amp; Awards
+                </div>
 
                 <article className="ufo-card" id="cast">
                   <h3 className="ufo-subheading">Cast</h3>
@@ -217,7 +254,7 @@ export function OriginalFilmSections() {
                 </article>
                 <article className="ufo-card" id="laurels">
                   <h3 className="ufo-subheading">Awards</h3>
-                  <p className="sec-lead ufo-awards-lead">Our laurels, festival selections, and contest wins.</p>
+                  <p className="sec-lead ufo-awards-lead">{ORIGINAL_FILM.laurelsIntro}</p>
                   <ul className="laurels-list">
                     {FESTIVAL_LAURELS.map((laurel) => (
                       <li key={`${laurel.name}-${laurel.result}`}>

@@ -4,6 +4,7 @@ import heroAtNext from "../../../assets/hero_at_next.webp";
 const NAV_LINKS = [
   { href: "#new-film", label: "N E X T" },
   { href: "#original-film", label: "UFO REVELATIONS" },
+  { href: "#trailer", label: "Trailer" },
   { href: "#dvd-bluray", label: "DVD & Blu Ray" },
   { href: "#cast", label: "Cast" },
   { href: "#crew", label: "Crew" },
