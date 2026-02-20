@@ -28,6 +28,10 @@
   --space-3xl: 4rem;
   --accent: rgba(255, 140, 60, 0.5);
   --accent-soft: rgba(255, 140, 60, 0.15);
+  --accent-strong: #ff9b4a;
+  --card-bg: rgba(255, 255, 255, 0.03);
+  --card-bg-strong: rgba(255, 255, 255, 0.05);
+  --glass-border: rgba(255, 255, 255, 0.14);
 }
 
 /* Legacy aliases */
@@ -137,12 +141,16 @@ html, body {
   background: var(--bg-2);
 }
 .section-shell.sec-directors .section-shell__inner {
-  padding-top: var(--space-2xl);
-  padding-bottom: var(--space-2xl);
+  padding-top: var(--space-xl);
+  padding-bottom: var(--space-xl);
 }
 
 .section-shell.sec-divider-wrap {
   text-align: center;
+  background:
+    radial-gradient(circle at 15% 20%, rgba(255, 140, 60, 0.12), transparent 42%),
+    radial-gradient(circle at 85% 80%, rgba(80, 160, 255, 0.1), transparent 42%),
+    var(--bg);
 }
 
 /* Container (centered content) */
@@ -183,6 +191,17 @@ html, body {
   align-items: flex-end;
 }
 
+.hero-original::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background:
+    linear-gradient(to right, rgba(0, 0, 0, 0.58) 0%, rgba(0, 0, 0, 0.26) 55%, rgba(0, 0, 0, 0.5) 100%),
+    linear-gradient(to top, rgba(0, 0, 0, 0.6) 0%, transparent 45%);
+  z-index: 1;
+  pointer-events: none;
+}
+
 .hero-original .hero-block-content.hero-original-content {
   min-height: 0;
   padding: var(--space-xl) var(--space-xl) clamp(var(--space-2xl), 6vw, var(--space-3xl));
@@ -193,8 +212,13 @@ html, body {
   width: 100%;
   max-width: 42rem;
   margin: 0;
-  padding: 0;
+  padding: var(--space-xl) var(--space-xl) calc(var(--space-xl) + 0.2rem);
   text-align: left;
+  border: 1px solid var(--glass-border);
+  border-radius: 14px;
+  background: linear-gradient(155deg, rgba(0, 0, 0, 0.5), rgba(20, 20, 20, 0.32));
+  backdrop-filter: blur(7px);
+  box-shadow: 0 22px 60px rgba(0, 0, 0, 0.45);
 }
 
 .hero-original-title {
@@ -359,6 +383,13 @@ html, body {
   color: var(--muted);
 }
 
+.hero-block-meta span {
+  padding: 0.3rem 0.65rem;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  border-radius: 999px;
+  background: rgba(0, 0, 0, 0.28);
+}
+
 .hero-block-btns {
   margin-top: var(--space-lg);
   display: flex;
@@ -451,6 +482,150 @@ html, body {
   margin-top: var(--space-xl);
 }
 
+/* ========== UFO Revelations layout system ========== */
+.ufo-frame {
+  width: 100%;
+  max-width: 1520px;
+  margin: 0 auto;
+  padding: clamp(var(--space), 1.8vw, var(--space-xl));
+  border: 1px solid var(--glass-border);
+  border-radius: 14px;
+  background: linear-gradient(160deg, rgba(255, 255, 255, 0.045), rgba(255, 255, 255, 0.015));
+  box-shadow: 0 24px 56px rgba(0, 0, 0, 0.28);
+}
+
+.ufo-frame--narrow {
+  max-width: 880px;
+}
+
+.ufo-frame--wide {
+  max-width: 1600px;
+}
+
+/* Break out of the default 1100px site container for UFO blocks */
+.sec-where-to-watch .container,
+.sec-synopsis .container,
+.sec-dvd .container {
+  max-width: 1600px;
+}
+
+.ufo-subheading {
+  margin: 0 0 var(--space);
+  font-family: var(--font-display), sans-serif;
+  font-size: clamp(1.1rem, 2.1vw, 1.35rem);
+  font-weight: 600;
+  letter-spacing: -0.01em;
+  color: #fff1e2;
+}
+
+.ufo-bento {
+  display: grid;
+  gap: clamp(var(--space), 2vw, var(--space-xl));
+}
+
+.ufo-bento--top {
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  grid-template-areas:
+    "watch snapshot"
+    "imminent pull";
+}
+
+.ufo-bento--details {
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  grid-template-areas:
+    "dvd cast"
+    "dvdExtras crew"
+    "awards awards";
+}
+
+.ufo-card {
+  border: 1px solid var(--glass-border);
+  border-radius: 12px;
+  background: linear-gradient(155deg, rgba(255, 255, 255, 0.055), rgba(255, 255, 255, 0.018));
+  padding: clamp(1rem, 2vw, 1.4rem);
+}
+
+.ufo-card--watch { grid-area: watch; }
+.ufo-card--snapshot { grid-area: snapshot; }
+.ufo-card--imminent { grid-area: imminent; }
+.ufo-card--pull { grid-area: pull; }
+.ufo-card--dvd { grid-area: dvd; }
+.ufo-card--dvd-extras { grid-area: dvdExtras; }
+.ufo-card#cast { grid-area: cast; }
+.ufo-card#crew { grid-area: crew; }
+.ufo-card#laurels { grid-area: awards; }
+
+.ufo-meta-inline {
+  margin-top: 0;
+  gap: 0.55rem;
+  flex-wrap: wrap;
+}
+
+.ufo-snapshot-stat {
+  margin-top: var(--space);
+  margin-bottom: var(--space);
+  font-size: 0.98rem;
+  line-height: 1.6;
+  text-transform: none;
+  letter-spacing: 0;
+}
+
+.ufo-compact-btns {
+  margin-top: var(--space);
+}
+
+.ufo-why-quote {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  background: transparent;
+  border-radius: 0;
+  color: #f5f5f5;
+  font-family: var(--font-display), sans-serif;
+  font-size: clamp(1.2rem, 2.2vw, 1.7rem);
+  font-weight: 600;
+  line-height: 1.32;
+  letter-spacing: -0.01em;
+}
+
+.ufo-pair--why {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.ufo-pair--why .ufo-subheading {
+  margin-bottom: 0.8rem;
+}
+.ufo-pairs-grid {
+  display: grid;
+  grid-template-columns: minmax(0, 1.2fr) minmax(0, 1fr);
+  grid-template-areas:
+    "film watch"
+    "film imminent"
+    "snapshot snapshot"
+    "why why";
+  gap: var(--space-lg);
+  align-items: stretch;
+}
+
+.ufo-pair {
+  align-self: stretch;
+}
+
+.ufo-pair--film { grid-area: film; }
+.ufo-pair--watch { grid-area: watch; }
+.ufo-pair--snapshot { grid-area: snapshot; }
+.ufo-pair--imminent { grid-area: imminent; }
+.ufo-pair--why { grid-area: why; }
+
+.ufo-awards-lead {
+  margin-bottom: 0.75rem;
+  font-size: 0.92rem;
+  text-transform: none;
+  letter-spacing: 0;
+}
+
 /* Divider (UFO Revelations) */
 .sec-divider-wrap .section-shell__inner {
   padding-top: var(--space-2xl);
@@ -459,7 +634,7 @@ html, body {
 
 .divider-content {
   text-align: center;
-  padding: 0;
+  padding: 0.5rem 0;
 }
 
 .divider-title {
@@ -469,12 +644,14 @@ html, body {
   font-weight: 600;
   color: var(--text);
   letter-spacing: -0.02em;
+  text-shadow: 0 10px 28px rgba(0, 0, 0, 0.45);
 }
 
 .divider-desc {
   margin: 0.5rem 0 0;
   font-size: 0.9rem;
   color: var(--muted);
+  letter-spacing: 0.04em;
 }
 
 /* ========== Where to Watch (compact strip below UFO Revelations hero) ========== */
@@ -499,21 +676,23 @@ html, body {
 
 .where-to-watch-lead {
   margin: 0 auto var(--space);
-  padding: 0 var(--space-sm);
-  font-size: 0.8rem;
-  line-height: 1.4;
+  padding: 0;
+  font-size: 0.95rem;
+  line-height: 1.62;
   color: var(--muted);
-  max-width: 48ch;
-  text-align: center;
+  max-width: 52ch;
+  text-align: left;
+  text-transform: none;
+  letter-spacing: 0;
 }
 
 .where-to-watch-grid {
   display: flex;
   flex-wrap: wrap;
-  justify-content: center;
-  gap: 0.5rem;
-  max-width: 580px;
-  margin: 0 auto var(--space-sm);
+  justify-content: flex-start;
+  gap: 0.75rem;
+  max-width: 620px;
+  margin: 0 0 var(--space);
   padding: 0;
 }
 
@@ -522,10 +701,10 @@ html, body {
   align-items: center;
   justify-content: center;
   gap: 0.35rem;
-  min-height: 36px;
+  min-height: 38px;
   padding: 0 1rem;
   background: transparent;
-  border: 1px solid rgba(255, 255, 255, 0.2);
+  border: 1px solid var(--glass-border);
   border-radius: 999px;
   text-align: center;
   text-decoration: none;
@@ -534,12 +713,17 @@ html, body {
   font-weight: 500;
   letter-spacing: 0.04em;
   white-space: nowrap;
-  transition: border-color 0.2s ease, background 0.2s ease, color 0.2s ease;
+  background: linear-gradient(165deg, rgba(255, 255, 255, 0.05), rgba(255, 255, 255, 0.015));
+  backdrop-filter: blur(4px);
+  box-shadow: 0 10px 24px rgba(0, 0, 0, 0.28);
+  transition: border-color 0.2s ease, background 0.2s ease, color 0.2s ease, transform 0.2s ease, box-shadow 0.2s ease;
 }
 
 .where-to-watch-card:hover {
-  border-color: rgba(255, 255, 255, 0.4);
-  background: rgba(255, 255, 255, 0.06);
+  border-color: rgba(255, 255, 255, 0.45);
+  background: linear-gradient(165deg, rgba(255, 255, 255, 0.11), rgba(255, 255, 255, 0.05));
+  transform: translateY(-2px);
+  box-shadow: 0 16px 30px rgba(0, 0, 0, 0.35);
 }
 
 .where-to-watch-card:focus-visible {
@@ -548,9 +732,9 @@ html, body {
 }
 
 .where-to-watch-card--primary {
-  background: var(--text);
-  color: var(--bg);
-  border-color: var(--text);
+  background: linear-gradient(135deg, #ffc086, var(--accent-strong));
+  color: #161616;
+  border-color: rgba(255, 186, 122, 0.9);
 }
 
 .where-to-watch-card--primary:hover {
@@ -589,17 +773,17 @@ html, body {
 
 .where-to-watch-official {
   display: inline-block;
-  margin-top: var(--space-sm);
+  margin-top: 0;
   padding: 0;
   font-size: 0.7rem;
   letter-spacing: 0.05em;
-  color: var(--muted);
+  color: rgba(255, 255, 255, 0.78);
   text-decoration: none;
   transition: color 0.2s ease;
 }
 
 .where-to-watch-official:hover {
-  color: var(--text);
+  color: #ffd2a8;
 }
 
 /* New Film Spotlight */
@@ -698,8 +882,8 @@ html, body {
 
 /* ========== Synopsis block (original film) ========== */
 .sec-synopsis .section-shell__inner {
-  padding-top: var(--space-3xl);
-  padding-bottom: var(--space-3xl);
+  padding-top: var(--space-2xl);
+  padding-bottom: var(--space-2xl);
 }
 
 .sec-synopsis .sec-label,
@@ -714,24 +898,24 @@ html, body {
 }
 
 .synopsis-block {
-  max-width: 880px;
+  max-width: 920px;
   margin-left: auto;
   margin-right: auto;
-  padding: 0 var(--space-xl);
+  padding: 0;
 }
 
 .synopsis-pull-quote {
   margin: 0 0 var(--space-3xl);
   padding: var(--space-2xl) var(--space-2xl) var(--space-2xl) var(--space-xl);
-  border-left: 4px solid var(--accent);
-  background: var(--accent-soft);
+  border-left: 4px solid rgba(255, 170, 98, 0.95);
+  background: linear-gradient(135deg, rgba(255, 140, 60, 0.2), rgba(255, 140, 60, 0.07));
   border-radius: 0 var(--radius) var(--radius) 0;
   font-family: var(--font-display), sans-serif;
   font-size: clamp(1.15rem, 2.4vw, 1.4rem);
   font-weight: 600;
   line-height: 1.38;
   letter-spacing: -0.02em;
-  color: var(--text);
+  color: #fff6ec;
   font-style: normal;
 }
 
@@ -745,6 +929,7 @@ html, body {
   margin-bottom: 0.12em;
 }
 
+
 .synopsis-body {
   display: flex;
   flex-direction: column;
@@ -753,34 +938,40 @@ html, body {
 
 .synopsis-body p {
   margin: 0;
-  font-size: 1.05rem;
-  line-height: 1.75;
-  color: var(--text);
+  font-size: 1.04rem;
+  line-height: 1.72;
+  color: #ededed;
   max-width: none;
+  text-transform: none;
+  letter-spacing: 0;
 }
 
 .synopsis-body p:first-child {
   font-size: 1.1rem;
   line-height: 1.7;
-  color: var(--text);
+  color: #ffffff;
 }
 
 /* ========== Imminent block (Ron James / Elizondo) ========== */
 .sec-imminent .section-shell__inner { text-align: center; }
 .imminent-block {
-  max-width: 500px;
-  margin: 0 auto;
+  max-width: none;
+  margin: 0;
   text-align: left;
-  padding: var(--space-xl) var(--space-xl) var(--space-xl) var(--space-lg);
-  border-left: 3px solid var(--accent);
-  background: var(--accent-soft);
+  padding: 0;
+  border: 1px solid rgba(255, 180, 120, 0.38);
+  border-left: 3px solid rgba(255, 170, 98, 0.95);
+  background: linear-gradient(155deg, rgba(255, 140, 60, 0.2), rgba(255, 140, 60, 0.08));
   border-radius: 0 var(--radius-sm) var(--radius-sm) 0;
+  box-shadow: 0 18px 40px rgba(0, 0, 0, 0.3);
 }
 .imminent-quote {
   margin: 0 0 var(--space);
-  font-size: 1.06rem;
-  line-height: 1.72;
+  font-size: 1.03rem;
+  line-height: 1.7;
   color: var(--text);
+  text-transform: none;
+  letter-spacing: 0;
 }
 .imminent-credit {
   margin: 0 0 var(--space-lg);
@@ -790,27 +981,33 @@ html, body {
 }
 .imminent-congrats {
   margin: 0 0 var(--space-sm);
-  font-size: 0.95rem;
+  font-size: 0.98rem;
   font-weight: 600;
   color: var(--text);
+  text-transform: none;
+  letter-spacing: 0;
 }
 .imminent-cta-line {
   margin: 0 0 var(--space-lg);
-  font-size: 0.875rem;
+  font-size: 0.9rem;
   color: var(--muted);
+  text-transform: none;
+  letter-spacing: 0;
 }
 .sec-imminent .hero-btn { margin-top: 0; }
 
 /* ========== DVD & Blu Ray ========== */
 .sec-dvd .sec-heading { margin-bottom: var(--space); }
-.sec-dvd-intro { max-width: 56ch; margin-bottom: var(--space-xl); line-height: 1.72; }
+.sec-dvd-intro { max-width: 56ch; margin-bottom: 0; line-height: 1.72; }
 .dvd-bonus-block {
-  max-width: 380px;
-  margin: var(--space-xl) 0;
+  max-width: none;
+  margin: 0;
   padding: var(--space-lg) var(--space-xl);
-  border-left: 3px solid var(--border);
-  background: rgba(255, 255, 255, 0.02);
+  border: 1px solid var(--glass-border);
+  border-left: 3px solid rgba(255, 170, 98, 0.95);
+  background: linear-gradient(150deg, rgba(255, 140, 60, 0.12), rgba(255, 255, 255, 0.02));
   border-radius: 0 var(--radius-sm) var(--radius-sm) 0;
+  box-shadow: 0 14px 34px rgba(0, 0, 0, 0.24);
 }
 .dvd-bonus-block .dvd-bonus-title {
   margin: 0 0 var(--space-sm);
@@ -846,6 +1043,28 @@ html, body {
   font-weight: 400;
   color: var(--border);
 }
+.dvd-extras-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: var(--space);
+  margin-bottom: var(--space-lg);
+}
+.dvd-order-block {
+  border: 1px solid var(--glass-border);
+  border-radius: var(--radius-sm);
+  background: linear-gradient(150deg, rgba(255, 255, 255, 0.045), rgba(255, 255, 255, 0.015));
+  padding: var(--space-lg) var(--space-xl);
+}
+.dvd-order-block .dvd-pricing {
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-sm);
+}
+.dvd-order-block .dvd-pricing span:not(:last-child)::after {
+  content: "";
+  margin: 0;
+}
 .sec-dvd .hero-btn { margin-top: 0; }
 
 /* ========== Cast ========== */
@@ -857,10 +1076,11 @@ html, body {
   margin: 0;
   padding-left: 0;
   list-style: none;
-  max-width: 620px;
-  border: 1px solid var(--border);
-  border-radius: var(--radius);
+  max-width: none;
+  border: 1px solid var(--glass-border);
+  border-radius: 12px;
   overflow: hidden;
+  box-shadow: 0 18px 38px rgba(0, 0, 0, 0.25);
 }
 .cast-list li {
   font-size: 0.92rem;
@@ -868,26 +1088,33 @@ html, body {
   padding: var(--space) var(--space-lg);
   border-bottom: 1px solid var(--border);
   border-right: 1px solid var(--border);
-  background: rgba(255, 255, 255, 0.01);
+  background: linear-gradient(155deg, rgba(255, 255, 255, 0.045), rgba(255, 255, 255, 0.015));
+  transition: background 0.2s ease, color 0.2s ease;
+}
+.cast-list li:hover {
+  background: linear-gradient(155deg, rgba(255, 140, 60, 0.18), rgba(255, 140, 60, 0.06));
+  color: #fff2e3;
 }
 .cast-list li:nth-child(2n) { border-right: none; }
 .cast-list li:nth-last-child(-n+2) { border-bottom: none; }
 @media (max-width: 520px) {
   .cast-list { grid-template-columns: 1fr; }
   .cast-list li { border-right: none; }
+  .laurels-list { grid-template-columns: 1fr; }
 }
 
 /* ========== Crew ========== */
 .sec-crew .sec-heading { margin-bottom: var(--space-lg); }
 .crew-block {
-  max-width: 540px;
+  max-width: none;
   display: flex;
   flex-direction: column;
   gap: 0;
-  border: 1px solid var(--border);
-  border-radius: var(--radius);
+  border: 1px solid var(--glass-border);
+  border-radius: 12px;
   overflow: hidden;
-  background: rgba(255, 255, 255, 0.02);
+  background: linear-gradient(155deg, rgba(255, 255, 255, 0.05), rgba(255, 255, 255, 0.015));
+  box-shadow: 0 18px 38px rgba(0, 0, 0, 0.25);
 }
 .crew-block p {
   margin: 0;
@@ -896,6 +1123,10 @@ html, body {
   font-size: 0.98rem;
   line-height: 1.58;
   color: var(--text);
+  transition: background 0.2s ease;
+}
+.crew-block p:hover {
+  background: rgba(255, 140, 60, 0.1);
 }
 .crew-block p:last-child { border-bottom: none; }
 .crew-block strong {
@@ -911,30 +1142,46 @@ html, body {
 /* ========== Festival laurels ========== */
 .sec-laurels .sec-heading { margin-bottom: var(--space); }
 .sec-laurels .sec-lead { margin-bottom: var(--space-xl); }
+.ufo-card#laurels .ufo-subheading { margin-bottom: 0.45rem; }
 .laurels-list {
   margin: 0;
-  padding-left: 0;
+  padding: 0;
   list-style: none;
-  max-width: 620px;
-  border: 1px solid var(--border);
-  border-radius: var(--radius);
-  overflow: hidden;
-  background: rgba(255, 255, 255, 0.02);
+  max-width: none;
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 0.65rem;
+  border: none;
+  background: transparent;
+  box-shadow: none;
 }
 .laurels-list li {
   margin: 0;
-  padding: var(--space) var(--space-lg);
-  border-bottom: 1px solid var(--border);
+  padding: 0.75rem 0.9rem;
+  border: 1px solid var(--glass-border);
+  border-radius: 10px;
+  background: linear-gradient(155deg, rgba(255, 255, 255, 0.05), rgba(255, 255, 255, 0.015));
+  transition: border-color 0.2s ease, background 0.2s ease;
 }
-.laurels-list li:last-child { border-bottom: none; }
+.laurels-list li:hover {
+  border-color: rgba(255, 188, 125, 0.5);
+  background: linear-gradient(155deg, rgba(255, 140, 60, 0.16), rgba(255, 140, 60, 0.06));
+}
 .laurels-list a,
 .laurels-list span {
-  font-size: 0.92rem;
+  display: block;
+  font-size: 0.94rem;
   color: var(--text);
   text-decoration: none;
-  line-height: 1.5;
+  line-height: 1.55;
+  text-transform: none;
+  letter-spacing: 0;
 }
-.laurels-list a:hover { color: var(--muted); text-decoration: underline; }
+.laurels-list a:hover {
+  color: #ffd2a8;
+  text-decoration-color: rgba(255, 210, 168, 0.75);
+  text-decoration: underline;
+}
 
 /* Merchandise intro (long SWAG copy) */
 .sec-merch-intro {
@@ -1404,7 +1651,55 @@ html, body {
   }
 
   .where-to-watch-grid {
-    max-width: 340px;
+    max-width: 100%;
+  }
+
+  .ufo-bento--top,
+  .ufo-bento--details,
+  .ufo-pairs-grid {
+    grid-template-columns: 1fr;
+    grid-template-areas: none;
+    gap: var(--space);
+  }
+
+  .where-to-watch-lead {
+    text-align: center;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .where-to-watch-grid {
+    justify-content: center;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .where-to-watch-official {
+    margin-top: var(--space-sm);
+  }
+
+  .ufo-card--watch,
+  .ufo-card--snapshot,
+  .ufo-card--imminent,
+  .ufo-card--pull,
+  .ufo-card--dvd,
+  .ufo-card--dvd-extras,
+  .ufo-card#cast,
+  .ufo-card#crew,
+  .ufo-card#laurels {
+    grid-area: auto;
+  }
+
+  .dvd-extras-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .ufo-pair--film,
+  .ufo-pair--watch,
+  .ufo-pair--snapshot,
+  .ufo-pair--imminent,
+  .ufo-pair--why {
+    grid-area: auto;
   }
 }
 
