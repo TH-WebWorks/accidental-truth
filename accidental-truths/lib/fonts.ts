@@ -2,7 +2,7 @@
  * Local font loader for Accidental Truth site.
  * Panton = main body text (--font-body).
  * Caviar Dreams = headings, hero titles, section headers, nav (--font-heading).
- * Font files from th-webworks-site/fonts/ (or assets/fonts/ if you add woff2 there).
+ * Font files from accidental truths/fonts/ (or assets/fonts/ if you add woff2 there).
  * Uses next/font/local for optimization; display: swap.
  */
 

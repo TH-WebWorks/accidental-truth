@@ -1,6 +1,6 @@
 /**
  * Local asset inventory for Accidental Truth site.
- * All images from th-webworks-site/assets. Use Next.js static imports.
+ * All images from accidental truths/assets. Use Next.js static imports.
  * Map logical names to imports; components resolve via this module.
  */
 
