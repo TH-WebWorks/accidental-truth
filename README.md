@@ -7,7 +7,7 @@ This repo contains the Next.js app in `accidental-truths/`.
 ### 1) Open the project folder
 
 ```bash
-cd "/Users/samhalverson/Development/accidental-truth/accidental truths"
+cd "/Users/samhalverson/Development/accidental-truth/accidental-truths"
 ```
 
 ### 2) Ensure Node.js is current

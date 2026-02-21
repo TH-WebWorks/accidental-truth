@@ -1,11 +1,11 @@
 import { Container } from "./Container";
-import { siteData } from "../../lib/site-data";
+import { sectionIds, siteData } from "../../lib/site-data";
 
 const { heading, lead, shopifyEmbedHtml, shopUrl, donateUrl } = siteData.merch;
 
 export function ShopifyEmbed() {
   return (
-    <section id="merch" className="py-16 sm:py-24 bg-[#1a1a1a] scroll-mt-24">
+    <section id={sectionIds.merch} data-section={sectionIds.merch} className="py-16 sm:py-24 bg-[#1a1a1a] scroll-mt-24">
       <Container>
         <h2 className="text-2xl sm:text-3xl font-bold text-white mb-4">
           {heading}

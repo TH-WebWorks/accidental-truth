@@ -1,0 +1,1 @@
+export { InfoStripSection } from "./InfoStrip";

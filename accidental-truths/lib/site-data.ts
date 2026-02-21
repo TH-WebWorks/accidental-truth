@@ -6,18 +6,52 @@
 const MUFON_VIDEO = "https://www.mufontelevision.com/video/accidental-truth/";
 const TRAILER_VIMEO = "https://player.vimeo.com/video/896080484?dnt=1&app_id=122963";
 
+export const sectionIds = {
+  top: "top",
+  info: "info",
+  why: "why",
+  trailer: "trailer",
+  trailerNext: "trailer-next",
+  voices: "voices",
+  quotes: "quotes",
+  merch: "merch",
+  original: "original",
+  about: "about",
+  footer: "footer",
+} as const;
+
+export type SectionId = (typeof sectionIds)[keyof typeof sectionIds];
+
+export const homepageSectionDataKeys = {
+  hero: "nextFilm",
+  infoStrip: "nextFilm.infoStrip",
+  why: "nextFilm.whyCards",
+  trailer: "nextFilm.synopsis",
+  voices: "nextFilm.voices",
+  quotes: "nextFilm.quotes",
+  merch: "merch",
+  originalDivider: "originalFilm.title",
+  about: "about",
+  footer: "footer",
+} as const;
+
+export type HomepageSectionDataKey =
+  (typeof homepageSectionDataKeys)[keyof typeof homepageSectionDataKeys];
+
+export const navLinks = [
+  { id: sectionIds.top, href: `#${sectionIds.top}`, label: "Top" },
+  { id: sectionIds.why, href: `#${sectionIds.why}`, label: "Why" },
+  { id: sectionIds.trailer, href: `#${sectionIds.trailer}`, label: "Trailer" },
+  { id: sectionIds.voices, href: `#${sectionIds.voices}`, label: "Voices" },
+  { id: sectionIds.quotes, href: `#${sectionIds.quotes}`, label: "Quotes" },
+  { id: sectionIds.merch, href: `#${sectionIds.merch}`, label: "Merch" },
+] as const;
+
 export const siteData = {
   site: {
     logoText: "Accidental Truth",
-    navLinks: [
-      { href: "#watch-next", label: "Watch NEXT" },
-      { href: "#trailer-next", label: "Trailer" },
-      { href: "#about", label: "About" },
-      { href: "#original", label: "Original Film" },
-      { href: "#merch", label: "Merch" },
-      { href: "#press", label: "Press" },
-    ],
-    primaryCta: { label: "Watch / Buy", href: "#watch-next" },
+    navLinks,
+    primaryCta: { label: "Watch / Buy", href: `#${sectionIds.top}` },
     socials: [
       { label: "YouTube", href: "https://youtube.com" },
       { label: "Twitter", href: "https://twitter.com" },
@@ -134,7 +168,7 @@ export const siteData = {
     supportLabel: "Support",
     socialLabel: "Social",
     contactLabel: "Contact",
-    primaryCta: { label: "Watch / Buy", href: "#watch-next" },
+    primaryCta: { label: "Watch / Buy", href: `#${sectionIds.top}` },
   },
 } as const;
 

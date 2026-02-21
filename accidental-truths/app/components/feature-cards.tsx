@@ -1,11 +1,11 @@
 import { Container } from "./Container";
-import { siteData } from "../../lib/site-data";
+import { sectionIds, siteData } from "../../lib/site-data";
 
 const cards = siteData.nextFilm.whyCards;
 
 export function FeatureCards() {
   return (
-    <section id="why" className="py-16 sm:py-24 bg-[#050505] scroll-mt-24">
+    <section id={sectionIds.why} data-section={sectionIds.why} className="py-16 sm:py-24 bg-[#050505] scroll-mt-24">
       <Container>
         <h2 className="text-2xl sm:text-3xl font-bold text-white mb-4">
           Why This Film Matters

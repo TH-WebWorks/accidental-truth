@@ -1,13 +1,13 @@
 import Image from "next/image";
 import { Container } from "./Container";
-import { siteData } from "../../lib/site-data";
+import { sectionIds, siteData } from "../../lib/site-data";
 import { assets } from "../../lib/assets";
 
 const { heading, producerName, producerRole, producerBio, mission, contactEmail } = siteData.about;
 
 export function AboutSection() {
   return (
-    <section id="about" className="py-16 sm:py-24 bg-[#1a1a1a] scroll-mt-24">
+    <section id={sectionIds.about} data-section={sectionIds.about} className="py-16 sm:py-24 bg-[#1a1a1a] scroll-mt-24">
       <Container>
         <h2 className="text-2xl sm:text-3xl font-bold text-white mb-10">
           {heading}

@@ -1,0 +1,1 @@
+export { ShopifyEmbedSection } from "./ShopifyEmbed";

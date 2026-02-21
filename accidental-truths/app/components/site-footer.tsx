@@ -1,8 +1,8 @@
 import Link from "next/link";
 import { Container } from "./Container";
-import { siteData } from "../../lib/site-data";
+import { sectionIds, siteData } from "../../lib/site-data";
 
-const { navLinks, socials, contactEmail, primaryCta } = siteData.site;
+const { socials, contactEmail, primaryCta } = siteData.site;
 const { filmsLabel, supportLabel, socialLabel, contactLabel } = siteData.footer;
 
 export function SiteFooter() {
@@ -16,17 +16,17 @@ export function SiteFooter() {
             </h3>
             <ul className="space-y-2">
               <li>
-                <Link href="#watch-next" className="text-white hover:text-[#b2b2b2] transition-colors">
+                <Link href={`#${sectionIds.top}`} className="text-white hover:text-[#b2b2b2] transition-colors">
                   Watch NEXT
                 </Link>
               </li>
               <li>
-                <Link href="#trailer-next" className="text-white hover:text-[#b2b2b2] transition-colors">
+                <Link href={`#${sectionIds.trailer}`} className="text-white hover:text-[#b2b2b2] transition-colors">
                   Trailer
                 </Link>
               </li>
               <li>
-                <Link href="#original" className="text-white hover:text-[#b2b2b2] transition-colors">
+                <Link href={`#${sectionIds.original}`} className="text-white hover:text-[#b2b2b2] transition-colors">
                   Original Film
                 </Link>
               </li>
@@ -38,7 +38,7 @@ export function SiteFooter() {
             </h3>
             <ul className="space-y-2">
               <li>
-                <Link href="#merch" className="text-white hover:text-[#b2b2b2] transition-colors">
+                <Link href={`#${sectionIds.merch}`} className="text-white hover:text-[#b2b2b2] transition-colors">
                   Merch
                 </Link>
               </li>

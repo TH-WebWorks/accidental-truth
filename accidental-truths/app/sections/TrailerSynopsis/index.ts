@@ -1,0 +1,1 @@
+export { TrailerSynopsisSection } from "./TrailerSynopsis";

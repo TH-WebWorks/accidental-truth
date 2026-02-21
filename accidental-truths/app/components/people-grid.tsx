@@ -1,5 +1,5 @@
 import { Container } from "./Container";
-import { siteData } from "../../lib/site-data";
+import { sectionIds, siteData } from "../../lib/site-data";
 
 const people = siteData.nextFilm.voices;
 
@@ -14,7 +14,7 @@ function getInitials(name: string) {
 
 export function PeopleGrid() {
   return (
-    <section id="voices" className="py-16 sm:py-24 bg-[#1a1a1a] scroll-mt-24">
+    <section id={sectionIds.voices} data-section={sectionIds.voices} className="py-16 sm:py-24 bg-[#1a1a1a] scroll-mt-24">
       <Container>
         <h2 className="text-2xl sm:text-3xl font-bold text-white mb-4">
           Featured Voices

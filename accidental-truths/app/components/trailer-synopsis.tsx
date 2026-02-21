@@ -1,6 +1,5 @@
 import Link from "next/link";
 import { Container } from "./Container";
-import { siteData } from "../../lib/site-data";
 
 type Props = {
   id: string;
@@ -20,7 +19,7 @@ export function TrailerSynopsis({
   ctaSecondary,
 }: Props) {
   return (
-    <section id={id} className="py-16 sm:py-24 bg-[#050505] scroll-mt-24">
+    <section id={id} data-section={id} className="py-16 sm:py-24 bg-[#050505] scroll-mt-24">
       <Container>
         <h2 className="text-2xl sm:text-3xl font-bold text-white mb-10">{title}</h2>
         <div className="grid lg:grid-cols-2 gap-10 lg:gap-14 items-start">

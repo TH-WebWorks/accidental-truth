@@ -1,6 +1,6 @@
 import Image from "next/image";
 import Link from "next/link";
-import { siteData } from "../../lib/site-data";
+import { sectionIds, siteData } from "../../lib/site-data";
 import { assets } from "../../lib/assets";
 
 const d = siteData.nextFilm;
@@ -8,7 +8,8 @@ const d = siteData.nextFilm;
 export function SectionHero() {
   return (
     <section
-      id="watch-next"
+      id={sectionIds.top}
+      data-section={sectionIds.top}
       className="relative min-h-screen flex flex-col justify-end pb-16 sm:pb-24 pt-20 overflow-hidden scroll-mt-0"
     >
       {/* Background: local hero image + dark overlay */}
@@ -46,7 +47,7 @@ export function SectionHero() {
             Watch / Buy
           </a>
           <Link
-            href="#trailer-next"
+            href={`#${sectionIds.trailer}`}
             className="inline-flex items-center justify-center min-h-[48px] px-8 py-3 text-sm font-medium uppercase tracking-wide border border-white/40 text-white rounded hover:bg-white/10 transition-colors"
           >
             Watch Trailer

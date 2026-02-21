@@ -1,0 +1,1 @@
+export { PeopleGridSection } from "./PeopleGrid";

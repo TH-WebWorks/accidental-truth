@@ -6,15 +6,27 @@ import { siteData } from "../../lib/site-data";
 
 const NAV = siteData.site.navLinks;
 const CTA = siteData.site.primaryCta;
+const LOGO_HREF = NAV[0]?.href ?? CTA.href;
 
-function NavLinks({ onNavigate }: { onNavigate?: () => void }) {
+function NavLinks({
+  onNavigate,
+  onLinkClick,
+}: {
+  onNavigate?: () => void;
+  onLinkClick: () => void;
+}) {
+  const handleNavItemClick = () => {
+    onNavigate?.();
+    onLinkClick();
+  };
+
   return (
     <>
       {NAV.map((link) => (
         <Link
           key={link.href}
           href={link.href}
-          onClick={onNavigate}
+          onClick={handleNavItemClick}
           className="text-sm font-medium text-white/90 hover:text-white transition-colors"
         >
           {link.label}
@@ -46,7 +58,7 @@ export function SiteHeader() {
       <div className="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8">
         <div className="flex h-16 sm:h-18 items-center justify-between gap-4">
           <Link
-            href="#watch-next"
+            href={LOGO_HREF}
             className="text-lg font-semibold text-white hover:text-white/90 transition-colors"
           >
             {siteData.site.logoText}
@@ -57,7 +69,7 @@ export function SiteHeader() {
             aria-label="Primary"
             className="hidden md:flex items-center gap-8"
           >
-            <NavLinks />
+            <NavLinks onLinkClick={() => setMenuOpen(false)} />
             <a
               href={CTA.href.startsWith("#") ? CTA.href : CTA.href}
               target={CTA.href.startsWith("#") ? undefined : "_blank"}
@@ -100,7 +112,7 @@ export function SiteHeader() {
           className="flex flex-col items-center justify-center gap-8 pt-12 px-6"
           aria-label="Mobile"
         >
-          <NavLinks onNavigate={() => setMenuOpen(false)} />
+          <NavLinks onNavigate={() => setMenuOpen(false)} onLinkClick={() => setMenuOpen(false)} />
           <a
             href={CTA.href.startsWith("#") ? CTA.href : CTA.href}
             target={CTA.href.startsWith("#") ? undefined : "_blank"}
