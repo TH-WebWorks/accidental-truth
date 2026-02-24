@@ -1916,3 +1916,186 @@ button {
 .footer-brand {
   font-family: var(--font-heading), sans-serif !important;
 }
+
+/* ========== Temporary Wireframe Mode ========== */
+.wireframe-mode {
+  --wireframe-light: #f2f2f2;
+  --wireframe-dark: #1a1a1a;
+  --wireframe-border: rgba(0, 0, 0, 0.2);
+  --wireframe-text-dark: #000000;
+  --wireframe-text-light: #ffffff;
+  background: var(--wireframe-dark);
+  color: var(--wireframe-text-light);
+}
+
+.wireframe-mode,
+.wireframe-mode * {
+  box-shadow: none !important;
+  text-shadow: none !important;
+  filter: none !important;
+}
+
+.wireframe-mode * {
+  background-image: none !important;
+}
+
+.wireframe-mode [class*="bg-"],
+.wireframe-mode [class*="from-"],
+.wireframe-mode [class*="to-"],
+.wireframe-mode [class*="via-"] {
+  background: var(--wireframe-light) !important;
+}
+
+.wireframe-mode [class*="text-"] {
+  color: var(--wireframe-text-dark) !important;
+}
+
+.wireframe-mode [class*="shadow"] {
+  box-shadow: none !important;
+}
+
+.wireframe-mode .container,
+.wireframe-mode .ufo-frame,
+.wireframe-mode .ufo-frame--narrow,
+.wireframe-mode .ufo-frame--wide {
+  max-width: 1200px !important;
+  margin-left: auto !important;
+  margin-right: auto !important;
+}
+
+.wireframe-mode section,
+.wireframe-mode header,
+.wireframe-mode footer,
+.wireframe-mode main,
+.wireframe-mode nav,
+.wireframe-mode aside,
+.wireframe-mode article,
+.wireframe-mode .section-shell,
+.wireframe-mode .ufo-card,
+.wireframe-mode .ufo-frame,
+.wireframe-mode .hero-original-inner,
+.wireframe-mode .merch-card,
+.wireframe-mode .press-card,
+.wireframe-mode .crew-block,
+.wireframe-mode .cast-list,
+.wireframe-mode .laurels-list li,
+.wireframe-mode .dvd-order-block,
+.wireframe-mode .dvd-bonus-block,
+.wireframe-mode .imminent-block,
+.wireframe-mode .media-block,
+.wireframe-mode .spotlight-video,
+.wireframe-mode .sec-video,
+.wireframe-mode .spotlight-poster,
+.wireframe-mode .sec-about-media img,
+.wireframe-mode .sec-media img {
+  border: 1px solid var(--wireframe-border) !important;
+}
+
+.wireframe-mode section,
+.wireframe-mode header,
+.wireframe-mode footer,
+.wireframe-mode .section-shell,
+.wireframe-mode .ufo-frame,
+.wireframe-mode .hero-divider-bar,
+.wireframe-mode .site-footer {
+  background: var(--wireframe-dark) !important;
+  color: var(--wireframe-text-light) !important;
+}
+
+.wireframe-mode .ufo-card,
+.wireframe-mode .hero-original-inner,
+.wireframe-mode .merch-card,
+.wireframe-mode .press-card,
+.wireframe-mode .crew-block,
+.wireframe-mode .cast-list li,
+.wireframe-mode .laurels-list li,
+.wireframe-mode .dvd-order-block,
+.wireframe-mode .dvd-bonus-block,
+.wireframe-mode .imminent-block,
+.wireframe-mode .where-to-watch-card,
+.wireframe-mode .media-block,
+.wireframe-mode .spotlight-video,
+.wireframe-mode .sec-video,
+.wireframe-mode .spotlight-poster,
+.wireframe-mode .merch-card-image {
+  background: var(--wireframe-light) !important;
+  color: var(--wireframe-text-dark) !important;
+}
+
+.wireframe-mode h1,
+.wireframe-mode h2,
+.wireframe-mode h3,
+.wireframe-mode h4,
+.wireframe-mode h5,
+.wireframe-mode h6,
+.wireframe-mode p,
+.wireframe-mode li,
+.wireframe-mode span,
+.wireframe-mode strong,
+.wireframe-mode small,
+.wireframe-mode a,
+.wireframe-mode button {
+  color: var(--wireframe-text-dark) !important;
+}
+
+.wireframe-mode .hero-block,
+.wireframe-mode .hero-block-bg,
+.wireframe-mode .hero-block-bg-inner,
+.wireframe-mode .hero-new-bg,
+.wireframe-mode .hero-new-placeholder,
+.wireframe-mode .hero-block-overlay {
+  background: var(--wireframe-dark) !important;
+}
+
+.wireframe-mode .hero-block-content,
+.wireframe-mode .hero-nav,
+.wireframe-mode .hero-block-text,
+.wireframe-mode .hero-block-meta,
+.wireframe-mode .hero-nav-home,
+.wireframe-mode .hero-nav-links a,
+.wireframe-mode .hero-block-badge,
+.wireframe-mode .hero-block-label,
+.wireframe-mode .hero-block-status,
+.wireframe-mode .hero-block-title,
+.wireframe-mode .hero-block-subtitle,
+.wireframe-mode .hero-block-meta span {
+  color: var(--wireframe-text-light) !important;
+}
+
+.wireframe-mode .hero-block-bg-inner img,
+.wireframe-mode .spotlight-poster img,
+.wireframe-mode .sec-about-media img,
+.wireframe-mode .sec-media img,
+.wireframe-mode .media-embed,
+.wireframe-mode iframe,
+.wireframe-mode video {
+  opacity: 0 !important;
+}
+
+.wireframe-mode .spotlight-poster::before,
+.wireframe-mode .media-block::before,
+.wireframe-mode .spotlight-video::before,
+.wireframe-mode .sec-video::before,
+.wireframe-mode .merch-card-image::before {
+  content: "Placeholder";
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 0.72rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--wireframe-text-dark);
+  background: var(--wireframe-light);
+}
+
+.wireframe-mode .hero-btn,
+.wireframe-mode .hero-btn-primary,
+.wireframe-mode .hero-btn-outline,
+.wireframe-mode .where-to-watch-card,
+.wireframe-mode .where-to-watch-card--primary {
+  background: var(--wireframe-light) !important;
+  border: 1px solid var(--wireframe-border) !important;
+  color: var(--wireframe-text-dark) !important;
+}

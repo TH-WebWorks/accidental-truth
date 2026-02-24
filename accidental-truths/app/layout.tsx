@@ -14,10 +14,18 @@ export default function RootLayout({
 }: Readonly<{
   children: React.ReactNode;
 }>) {
+  const wireframeModeEnabled = true;
+
   return (
     <html lang="en" className={`${panton.variable} ${caviar.variable}`}>
-      <body className="min-h-dvh bg-[#050505] text-white antialiased font-body">
-        <SmoothScroll>{children}</SmoothScroll>
+      <body
+        className={`min-h-dvh bg-[#050505] text-white antialiased font-body ${
+          wireframeModeEnabled ? "wireframe-mode" : ""
+        }`}
+      >
+        <div>
+          <SmoothScroll>{children}</SmoothScroll>
+        </div>
       </body>
     </html>
   );
