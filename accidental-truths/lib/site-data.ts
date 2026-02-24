@@ -10,12 +10,14 @@ export const sectionIds = {
   top: "top",
   info: "info",
   why: "why",
+  story: "story",
   trailer: "trailer",
   trailerNext: "trailer-next",
   voices: "voices",
   quotes: "quotes",
-  merch: "merch",
+  archive: "archive",
   original: "original",
+  merch: "merch",
   about: "about",
   footer: "footer",
 } as const;
@@ -26,11 +28,13 @@ export const homepageSectionDataKeys = {
   hero: "nextFilm",
   infoStrip: "nextFilm.infoStrip",
   why: "nextFilm.whyCards",
+  storySoFar: "nextFilm.storySoFar",
   trailer: "nextFilm.synopsis",
   voices: "nextFilm.voices",
   quotes: "nextFilm.quotes",
+  archive: "archive",
+  originalFeature: "originalFilm.secondaryFeature",
   merch: "merch",
-  originalDivider: "originalFilm.title",
   about: "about",
   footer: "footer",
 } as const;
@@ -40,10 +44,10 @@ export type HomepageSectionDataKey =
 
 export const navLinks = [
   { id: sectionIds.top, href: `#${sectionIds.top}`, label: "Top" },
-  { id: sectionIds.why, href: `#${sectionIds.why}`, label: "Why" },
+  { id: sectionIds.story, href: `#${sectionIds.story}`, label: "Story" },
   { id: sectionIds.trailer, href: `#${sectionIds.trailer}`, label: "Trailer" },
-  { id: sectionIds.voices, href: `#${sectionIds.voices}`, label: "Voices" },
-  { id: sectionIds.quotes, href: `#${sectionIds.quotes}`, label: "Quotes" },
+  { id: sectionIds.archive, href: `#${sectionIds.archive}`, label: "Archive" },
+  { id: sectionIds.original, href: `#${sectionIds.original}`, label: "Legacy" },
   { id: sectionIds.merch, href: `#${sectionIds.merch}`, label: "Merch" },
 ] as const;
 
@@ -51,7 +55,7 @@ export const siteData = {
   site: {
     logoText: "Accidental Truth",
     navLinks,
-    primaryCta: { label: "Watch / Buy", href: `#${sectionIds.top}` },
+    primaryCta: { label: "Watch / Buy", href: `#${sectionIds.original}` },
     socials: [
       { label: "YouTube", href: "https://youtube.com" },
       { label: "Twitter", href: "https://twitter.com" },
@@ -71,11 +75,20 @@ export const siteData = {
     producer: "Ron James Television",
     watchUrl: MUFON_VIDEO,
     trailerUrl: TRAILER_VIMEO,
+    trailerThumbnailUrl: "https://vumbnail.com/896080484.jpg",
+    trailerBridge:
+      "The next chapter opens with new testimony, unresolved evidence trails, and rising institutional pressure.",
     infoStrip: [
+      { label: "Release Date", value: "TBD" },
       { label: "Runtime", value: "TBD" },
-      { label: "Release", value: "2025" },
-      { label: "Where to watch", value: "MUFON TV" },
-      { label: "Producer", value: "Ron James Television" },
+      { label: "Director", value: "Ron James" },
+      { label: "Distribution / Platform", value: "MUFON TV" },
+      { label: "Awards / Badges", value: "Festival run in progress" },
+    ],
+    storySoFar: [
+      "Public hearings brought UAP disclosure to the center of public conversation, but major evidence trails remain unresolved.",
+      "NEXT follows the people, documents, and testimony that continue to move the story from speculation to record.",
+      "This chapter is designed to connect what audiences learned in UFO Revelations to what is unfolding now.",
     ],
     synopsis: [
       "The next chapter in the Accidental Truth series continues where the first film left off: insider testimony, congressional pressure, and the ongoing push for disclosure.",
@@ -115,6 +128,21 @@ export const siteData = {
     ],
   },
 
+  archive: {
+    heading: "Archive",
+    lead: "An evidence-led archive experience where viewers can move through case files, witness notes, and visual records.",
+    evidenceLabels: [
+      "Case File 001 - Radar Event",
+      "Case File 014 - Testimony Packet",
+      "Case File 026 - Flight Log",
+      "Case File 039 - Sensor Capture",
+      "Case File 052 - Incident Timeline",
+      "Case File 067 - Debrief Notes",
+    ],
+    ctaLabel: "Enter Archive",
+    ctaHref: "#",
+  },
+
   originalFilm: {
     title: "Accidental Truth: UFO Revelations",
     shortDesc: "The film that delivered the evidence and set the stage for the story whistleblower David Grusch revealed to the world. Winner of 28 Film Festival Awards.",
@@ -122,6 +150,7 @@ export const siteData = {
     heroImageKey: "original.heroBg",
     watchUrl: MUFON_VIDEO,
     trailerUrl: TRAILER_VIMEO,
+    trailerThumbnailUrl: "https://vumbnail.com/896080484.jpg",
     synopsis: [
       "In April 2023, “Accidental Truth, UFO Revelations”, narrated by Matthew Modine, shocked the intelligence community and the public. Filmmaker Ron James met with Congressman Tim Burchett and revealed what years of investigations by MUFON and others have proven about the UFO cover-up.",
       "The US Government and private industries are in possession of non-human technology. You will be convinced through never-before-seen interviews, new evidence, and government insiders “accidentally” revealing the truth.",
@@ -144,10 +173,18 @@ export const siteData = {
         content: "Common questions addressed: Why now? Who is behind the cover-up? What does disclosure mean for the public? The film doesn’t shy away from the big questions.",
       },
     ],
+    secondaryFeature: {
+      label: "Previously Released Film",
+      title: "Accidental Truth: UFO Revelations",
+      summary:
+        "The foundational film that introduced key witnesses and evidence now expanded in NEXT.",
+      ctaLabel: "View Legacy Film Content",
+      ctaHref: TRAILER_VIMEO,
+    },
   },
 
   merch: {
-    heading: "Support the Film",
+    heading: "Merch",
     lead: "Get official merch. A portion of proceeds supports the team and future projects. FREE shipping in the US.",
     shopifyEmbedHtml: "", // Paste Shopify embed script/section when ready
     shopUrl: MUFON_VIDEO,
@@ -168,6 +205,16 @@ export const siteData = {
     supportLabel: "Support",
     socialLabel: "Social",
     contactLabel: "Contact",
+    pressKitLabel: "Press Kit",
+    pressKitUrl: "#",
+    newsletterHeading: "Newsletter",
+    newsletterPlaceholder: "Email address",
+    newsletterCta: "Join",
+    legalLinks: [
+      { label: "Privacy", href: "#" },
+      { label: "Terms", href: "#" },
+      { label: "Accessibility", href: "#" },
+    ],
     primaryCta: { label: "Watch / Buy", href: `#${sectionIds.top}` },
   },
 } as const;

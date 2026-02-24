@@ -27,7 +27,7 @@ function NavLinks({
           key={link.href}
           href={link.href}
           onClick={handleNavItemClick}
-          className="text-sm font-medium text-white/90 hover:text-white transition-colors"
+          className="text-sm font-medium text-[var(--tone-muted)] hover:text-[var(--tone-text)] transition-colors"
         >
           {link.label}
         </Link>
@@ -47,7 +47,7 @@ export function SiteHeader() {
   }, []);
 
   const headerBg = scrolled
-    ? "bg-[#050505]/95 backdrop-blur-md border-b border-white/10"
+    ? "bg-[var(--tone-base)]/95 backdrop-blur-md border-b border-[var(--tone-border)]"
     : "bg-transparent border-b border-transparent";
 
   return (
@@ -55,7 +55,7 @@ export function SiteHeader() {
       className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${headerBg}`}
       role="banner"
     >
-      <div className="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8">
+      <div className="mx-auto max-w-[1440px] px-4 sm:px-6 lg:px-10">
         <div className="flex h-16 sm:h-18 items-center justify-between gap-4">
           <Link
             href={LOGO_HREF}
@@ -74,7 +74,7 @@ export function SiteHeader() {
               href={CTA.href.startsWith("#") ? CTA.href : CTA.href}
               target={CTA.href.startsWith("#") ? undefined : "_blank"}
               rel={CTA.href.startsWith("#") ? undefined : "noreferrer"}
-              className="inline-flex items-center justify-center min-h-[44px] px-5 py-2.5 text-sm font-medium uppercase tracking-wide bg-[#e65c01] text-white rounded hover:bg-[#e65c01]/90 transition-colors"
+              className="inline-flex items-center justify-center min-h-[44px] px-5 py-2.5 text-sm font-medium uppercase tracking-wide bg-[var(--tone-accent)] text-[#031218] rounded hover:bg-[#54b9cc] transition-colors"
             >
               {CTA.label}
             </a>
@@ -105,7 +105,7 @@ export function SiteHeader() {
       {/* Mobile full-screen overlay */}
       <div
         id="mobile-menu"
-        className={`md:hidden fixed inset-0 top-16 bg-[#050505] transition-opacity duration-300 ${menuOpen ? "opacity-100 pointer-events-auto" : "opacity-0 pointer-events-none"}`}
+        className={`md:hidden fixed inset-0 top-16 bg-[var(--tone-base)] transition-opacity duration-300 ${menuOpen ? "opacity-100 pointer-events-auto" : "opacity-0 pointer-events-none"}`}
         aria-hidden={!menuOpen}
       >
         <nav
@@ -118,7 +118,7 @@ export function SiteHeader() {
             target={CTA.href.startsWith("#") ? undefined : "_blank"}
             rel={CTA.href.startsWith("#") ? undefined : "noreferrer"}
             onClick={() => setMenuOpen(false)}
-            className="inline-flex items-center justify-center min-h-[48px] px-8 py-3 text-sm font-medium uppercase tracking-wide bg-[#e65c01] text-white rounded"
+            className="inline-flex items-center justify-center min-h-[48px] px-8 py-3 text-sm font-medium uppercase tracking-wide bg-[var(--tone-accent)] text-[#031218] rounded"
           >
             {CTA.label}
           </a>

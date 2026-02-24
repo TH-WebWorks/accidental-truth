@@ -7,13 +7,11 @@ import {
 } from "@/lib/site-data";
 import { HeroSection } from "@/app/sections/Hero";
 import { InfoStripSection } from "@/app/sections/InfoStrip";
-import { FeatureCardsSection } from "@/app/sections/FeatureCards";
+import { StorySoFarSection } from "@/app/sections/StorySoFar/StorySoFar";
 import { TrailerSynopsisSection } from "@/app/sections/TrailerSynopsis";
-import { PeopleGridSection } from "@/app/sections/PeopleGrid";
-import { QuotesGridSection } from "@/app/sections/QuotesGrid";
+import { ArchiveTeaserSection } from "@/app/sections/ArchiveTeaser/ArchiveTeaser";
+import { SecondaryFilmSection } from "@/app/sections/SecondaryFilm/SecondaryFilm";
 import { ShopifyEmbedSection } from "@/app/sections/ShopifyEmbed";
-import { SectionDividerSection } from "@/app/sections/SectionDivider";
-import { AboutSectionBlock } from "@/app/sections/AboutSection";
 import { SiteFooterSection } from "@/app/sections/SiteFooter";
 
 /**
@@ -44,10 +42,10 @@ export const sectionRegistry: readonly HomeSectionEntry[] = [
     dataKey: homepageSectionDataKeys.infoStrip,
   },
   {
-    id: sectionIds.why,
-    label: "Why",
-    component: FeatureCardsSection,
-    dataKey: homepageSectionDataKeys.why,
+    id: sectionIds.story,
+    label: "Story",
+    component: StorySoFarSection,
+    dataKey: homepageSectionDataKeys.storySoFar,
   },
   {
     id: sectionIds.trailer,
@@ -56,34 +54,22 @@ export const sectionRegistry: readonly HomeSectionEntry[] = [
     dataKey: homepageSectionDataKeys.trailer,
   },
   {
-    id: sectionIds.voices,
-    label: "Voices",
-    component: PeopleGridSection,
-    dataKey: homepageSectionDataKeys.voices,
+    id: sectionIds.archive,
+    label: "Archive",
+    component: ArchiveTeaserSection,
+    dataKey: homepageSectionDataKeys.archive,
   },
   {
-    id: sectionIds.quotes,
-    label: "Quotes",
-    component: QuotesGridSection,
-    dataKey: homepageSectionDataKeys.quotes,
+    id: sectionIds.original,
+    label: "Original",
+    component: SecondaryFilmSection,
+    dataKey: homepageSectionDataKeys.originalFeature,
   },
   {
     id: sectionIds.merch,
     label: "Merch",
     component: ShopifyEmbedSection,
     dataKey: homepageSectionDataKeys.merch,
-  },
-  {
-    id: sectionIds.original,
-    label: "Original",
-    component: SectionDividerSection,
-    dataKey: homepageSectionDataKeys.originalDivider,
-  },
-  {
-    id: sectionIds.about,
-    label: "About",
-    component: AboutSectionBlock,
-    dataKey: homepageSectionDataKeys.about,
   },
   {
     id: sectionIds.footer,

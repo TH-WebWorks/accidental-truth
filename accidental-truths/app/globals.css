@@ -9,13 +9,13 @@
   /* --font-body and --font-heading are set by next/font on <html> */
   --font-sans: var(--font-body), sans-serif;
   --font-mono: var(--font-body), sans-serif;
-  --bg: #171717;
-  --bg-2: #1a1a1a;
-  --text: #ffffff;
-  --muted: #a3a3a3;
-  --border: rgba(255, 255, 255, 0.08);
-  --orange: rgba(255, 140, 60, 0.12);
-  --blue: rgba(80, 160, 255, 0.1);
+  --bg: #0b1016;
+  --bg-2: #121921;
+  --text: #e8edf2;
+  --muted: #8b99a6;
+  --border: rgba(124, 147, 166, 0.26);
+  --orange: rgba(62, 169, 191, 0.12);
+  --blue: rgba(62, 169, 191, 0.12);
   --shadow: 0 20px 50px rgba(0, 0, 0, 0.4);
   --shadow-sm: 0 4px 20px rgba(0, 0, 0, 0.25);
   --radius: 8px;
@@ -26,12 +26,26 @@
   --space-xl: 2rem;
   --space-2xl: 3rem;
   --space-3xl: 4rem;
-  --accent: rgba(255, 140, 60, 0.5);
-  --accent-soft: rgba(255, 140, 60, 0.15);
-  --accent-strong: #ff9b4a;
+  --accent: rgba(62, 169, 191, 0.5);
+  --accent-soft: rgba(62, 169, 191, 0.15);
+  --accent-strong: #3ea9bf;
   --card-bg: rgba(255, 255, 255, 0.03);
   --card-bg-strong: rgba(255, 255, 255, 0.05);
   --glass-border: rgba(255, 255, 255, 0.14);
+  --tone-base: #0b1016;
+  --tone-surface: #121921;
+  --tone-surface-2: #18212b;
+  --tone-text: #e8edf2;
+  --tone-muted: #8b99a6;
+  --tone-border: rgba(124, 147, 166, 0.26);
+  --tone-accent: #3ea9bf;
+  --tone-accent-soft: rgba(62, 169, 191, 0.18);
+  --section-pad-y: clamp(3.5rem, 7vw, 6rem);
+  --section-pad-y-tight: clamp(2rem, 4vw, 3rem);
+  --section-divider: rgba(124, 147, 166, 0.26);
+  --section-divider-soft: rgba(124, 147, 166, 0.16);
+  --legacy-heading: rgba(232, 237, 242, 0.86);
+  --legacy-muted: rgba(232, 237, 242, 0.68);
   --content-width: 1440px;
   --content-width-wide: 1680px;
   --prose-width: 70ch;
@@ -77,7 +91,6 @@ button {
 /* Anchor targets: offset for in-page links */
 [id="trailer"],
 [id="original-synopsis"],
-[id="gallery"],
 [id="dvd-bluray"],
 [id="cast"],
 [id="crew"],
@@ -98,6 +111,377 @@ button {
 .section-shell__inner {
   position: relative;
   z-index: 1;
+}
+
+/* ========== Homepage flow cadence + phase shifts ========== */
+.flow-section {
+  position: relative;
+  padding-top: var(--section-pad-y);
+  padding-bottom: var(--section-pad-y);
+}
+
+.flow-section--tight {
+  padding-top: var(--section-pad-y-tight);
+  padding-bottom: var(--section-pad-y-tight);
+}
+
+.phase-shift-soft::before,
+.phase-shift::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 0;
+  height: 1px;
+  pointer-events: none;
+}
+
+.phase-shift-soft::before {
+  background: linear-gradient(
+    90deg,
+    transparent 0%,
+    var(--section-divider-soft) 16%,
+    var(--section-divider-soft) 84%,
+    transparent 100%
+  );
+}
+
+.phase-shift::before {
+  background: linear-gradient(
+    90deg,
+    transparent 0%,
+    var(--section-divider) 16%,
+    var(--section-divider) 84%,
+    transparent 100%
+  );
+}
+
+.phase-shift-soft::after,
+.phase-shift::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 1px;
+  height: clamp(1.5rem, 4vw, 2.5rem);
+  pointer-events: none;
+  background: linear-gradient(to bottom, rgba(62, 169, 191, 0.08), transparent 78%);
+}
+
+.phase-shift-soft::after {
+  opacity: 0.45;
+}
+
+.phase-shift::after {
+  opacity: 0.65;
+}
+
+.legacy-group {
+  margin-top: clamp(2rem, 4vw, 3.5rem);
+}
+
+.legacy-group-label {
+  margin: 0 0 0.9rem;
+  font-size: 0.66rem;
+  font-weight: 600;
+  letter-spacing: 0.13em;
+  text-transform: uppercase;
+  color: var(--legacy-muted);
+}
+
+.legacy-group-heading {
+  margin: 0 0 1rem;
+  font-family: var(--font-heading), sans-serif;
+  font-size: clamp(1.05rem, 2.3vw, 1.35rem);
+  font-weight: 500;
+  letter-spacing: 0.01em;
+  color: var(--legacy-heading);
+}
+
+.legacy-section {
+  position: relative;
+  padding-top: clamp(1.75rem, 3.5vw, 2.75rem);
+  padding-bottom: clamp(1.75rem, 3.5vw, 2.75rem);
+}
+
+/* ========== Legacy Case File system ========== */
+.legacy-casefile {
+  background: var(--tone-base);
+}
+
+.legacy-casefile__header {
+  margin-bottom: clamp(1.75rem, 4vw, 2.75rem);
+}
+
+.legacy-casefile__kicker {
+  margin: 0 0 0.45rem;
+  font-size: 0.68rem;
+  font-weight: 600;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--tone-muted);
+}
+
+.legacy-casefile__title {
+  margin: 0;
+  font-size: clamp(1.45rem, 3vw, 1.95rem);
+  font-weight: 550;
+  letter-spacing: -0.015em;
+  color: var(--legacy-heading);
+}
+
+.legacy-casefile__body {
+  display: flex;
+  flex-direction: column;
+  gap: clamp(1.75rem, 4vw, 2.75rem);
+}
+
+.legacy-casefile__subsection {
+  position: relative;
+}
+
+.legacy-casefile__subsection + .legacy-casefile__subsection {
+  padding-top: clamp(1.75rem, 3.5vw, 2.5rem);
+  border-top: 1px solid var(--section-divider-soft);
+}
+
+.legacy-casefile__subsectionHead {
+  margin: 0 0 0.95rem;
+}
+
+.legacy-casefile__subsectionTitle {
+  margin: 0;
+  font-size: clamp(1rem, 2.1vw, 1.25rem);
+  font-weight: 550;
+  letter-spacing: 0;
+  color: var(--legacy-heading);
+}
+
+.legacy-casefile__overviewCard {
+  border: 1px solid var(--tone-border);
+  border-radius: 12px;
+  background: linear-gradient(160deg, rgba(255, 255, 255, 0.035), rgba(255, 255, 255, 0.015));
+  padding: clamp(1.1rem, 3vw, 1.75rem);
+}
+
+.legacy-casefile__overviewMeta {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.55rem;
+  margin-bottom: 1rem;
+}
+
+.legacy-casefile__overviewMeta span {
+  font-size: 0.7rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--tone-muted);
+  border: 1px solid var(--section-divider-soft);
+  border-radius: 999px;
+  padding: 0.3rem 0.65rem;
+}
+
+.legacy-casefile__overviewGrid {
+  display: grid;
+  grid-template-columns: minmax(0, 1.15fr) minmax(0, 0.85fr);
+  gap: clamp(1rem, 2.8vw, 1.75rem);
+  align-items: start;
+}
+
+.legacy-casefile__overviewMedia {
+  width: 100%;
+}
+
+.legacy-casefile__overviewCopy {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.legacy-casefile__overviewLead {
+  margin: 0;
+  font-size: 1rem;
+  line-height: 1.65;
+  color: var(--tone-muted);
+}
+
+.legacy-casefile__watchGrid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 0.75rem;
+}
+
+.legacy-casefile__watchCard {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 44px;
+  padding: 0.8rem 1rem;
+  border-radius: 10px;
+  border: 1px solid var(--tone-border);
+  background: rgba(255, 255, 255, 0.02);
+  color: var(--tone-text);
+  text-decoration: none;
+  text-align: center;
+  font-size: 0.75rem;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  transition: border-color 0.2s ease, background 0.2s ease;
+}
+
+.legacy-casefile__watchCard:hover {
+  border-color: rgba(255, 255, 255, 0.24);
+  background: rgba(255, 255, 255, 0.04);
+}
+
+.legacy-casefile__prose {
+  max-width: var(--prose-width);
+  display: grid;
+  gap: 1rem;
+}
+
+.legacy-casefile__card {
+  border: 1px solid var(--tone-border);
+  border-radius: 10px;
+  padding: clamp(1rem, 2.6vw, 1.45rem);
+  background: rgba(255, 255, 255, 0.02);
+}
+
+.legacy-casefile__cardTitle {
+  margin: 0 0 0.9rem;
+  font-size: 1.02rem;
+  font-weight: 550;
+  color: var(--legacy-heading);
+}
+
+.legacy-casefile__microHeading {
+  margin: 0 0 0.5rem;
+  font-size: 0.66rem;
+  font-weight: 600;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--legacy-muted);
+}
+
+.legacy-casefile__split {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: clamp(1rem, 2.4vw, 1.35rem);
+  padding-top: clamp(1.75rem, 3.5vw, 2.5rem);
+  border-top: 1px solid var(--section-divider-soft);
+}
+
+.legacy-casefile__split > .legacy-casefile__subsection + .legacy-casefile__subsection {
+  padding-top: 0;
+  border-top: 0;
+}
+
+.legacy-casefile__nameGrid {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 0.6rem;
+}
+
+.legacy-casefile__nameCell {
+  border: 1px solid var(--tone-border);
+  border-radius: 8px;
+  padding: 0.65rem 0.8rem;
+  font-size: 0.88rem;
+  color: var(--tone-text);
+  background: rgba(255, 255, 255, 0.015);
+}
+
+.legacy-casefile__crewGrid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 0.75rem;
+}
+
+.legacy-casefile__laurelGrid {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 0.7rem;
+}
+
+.legacy-casefile__laurelCell {
+  display: block;
+  height: 100%;
+  border: 1px solid var(--tone-border);
+  border-radius: 10px;
+  padding: 0.75rem 0.85rem;
+  color: var(--tone-text);
+  text-decoration: none;
+  font-size: 0.88rem;
+  line-height: 1.5;
+  background: rgba(255, 255, 255, 0.015);
+  transition: border-color 0.2s ease, background 0.2s ease;
+}
+
+.legacy-casefile__laurelCell:hover {
+  border-color: rgba(255, 255, 255, 0.24);
+  background: rgba(255, 255, 255, 0.03);
+}
+
+.legacy-casefile__mediaGrid {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 0.75rem;
+}
+
+.legacy-casefile__mediaCard {
+  display: flex;
+  flex-direction: column;
+  gap: 0.45rem;
+  border: 1px solid var(--tone-border);
+  border-radius: 10px;
+  padding: 0.9rem;
+  text-decoration: none;
+  background: rgba(255, 255, 255, 0.015);
+  transition: border-color 0.2s ease, background 0.2s ease;
+}
+
+.legacy-casefile__mediaCard:hover {
+  border-color: rgba(255, 255, 255, 0.24);
+  background: rgba(255, 255, 255, 0.03);
+}
+
+.legacy-casefile__mediaTitle {
+  color: var(--tone-text);
+  font-size: 0.94rem;
+  line-height: 1.45;
+}
+
+.legacy-casefile__mediaMeta {
+  color: var(--tone-muted);
+  font-size: 0.72rem;
+  text-transform: uppercase;
+  letter-spacing: 0.09em;
+}
+
+.legacy-casefile__note {
+  border: 1px solid var(--tone-border);
+  border-radius: 10px;
+  background: rgba(255, 255, 255, 0.015);
+  padding: clamp(1rem, 2.6vw, 1.45rem);
+}
+
+.legacy-casefile__hashtags {
+  margin: 0;
+  color: var(--tone-muted);
+  font-size: 0.76rem;
+  line-height: 1.7;
+  letter-spacing: 0.04em;
+  word-break: break-word;
 }
 
 .section-shell--default {
@@ -1808,6 +2192,19 @@ button {
 }
 
 @media (max-width: 768px) {
+  .legacy-casefile__overviewGrid,
+  .legacy-casefile__split,
+  .legacy-casefile__crewGrid,
+  .legacy-casefile__laurelGrid,
+  .legacy-casefile__mediaGrid,
+  .legacy-casefile__watchGrid {
+    grid-template-columns: 1fr;
+  }
+
+  .legacy-casefile__nameGrid {
+    grid-template-columns: 1fr;
+  }
+
   .sec-two-col,
   .spotlight {
     grid-template-columns: 1fr;

@@ -14,12 +14,12 @@ export default function RootLayout({
 }: Readonly<{
   children: React.ReactNode;
 }>) {
-  const wireframeModeEnabled = true;
+  const wireframeModeEnabled = false;
 
   return (
     <html lang="en" className={`${panton.variable} ${caviar.variable}`}>
       <body
-        className={`min-h-dvh bg-[#050505] text-white antialiased font-body ${
+        className={`min-h-dvh bg-[var(--tone-base)] text-[var(--tone-text)] antialiased font-body ${
           wireframeModeEnabled ? "wireframe-mode" : ""
         }`}
       >

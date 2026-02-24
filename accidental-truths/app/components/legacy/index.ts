@@ -1,3 +1,4 @@
+export { LegacyCaseFile } from "./legacy-case-file";
 export { LegacyHeroUfo } from "./legacy-hero";
 export { WatchLinks } from "./watch-links";
 export { ImminentBookCallout } from "./imminent-book-callout";

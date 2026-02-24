@@ -1,21 +1,20 @@
-import { Container } from "../Container";
 import { mufonUfoRevelations } from "../../../lib/mufon-ufo-revelations";
 
 const { descriptionParagraphs } = mufonUfoRevelations;
 
 export function LegacyDescription() {
   return (
-    <section className="py-12 sm:py-16 bg-[#1a1a1a] scroll-mt-24">
-      <Container>
-        <h2 className="text-xl font-semibold text-white mb-6 sr-only">Film description</h2>
-        <div className="max-w-3xl space-y-6">
-          {descriptionParagraphs.map((p, i) => (
-            <p key={i} className="text-[#b2b2b2] leading-relaxed">
-              {p}
-            </p>
-          ))}
-        </div>
-      </Container>
-    </section>
+    <div className="legacy-casefile__subsection scroll-mt-24">
+      <div className="legacy-casefile__subsectionHead">
+        <h3 className="legacy-casefile__subsectionTitle">Film Description</h3>
+      </div>
+      <div className="legacy-casefile__prose">
+        {descriptionParagraphs.map((p, i) => (
+          <p key={i} className="text-(--tone-muted) leading-relaxed">
+            {p}
+          </p>
+        ))}
+      </div>
+    </div>
   );
 }

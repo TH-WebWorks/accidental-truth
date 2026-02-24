@@ -5,51 +5,86 @@ const { heading, lead, shopifyEmbedHtml, shopUrl, donateUrl } = siteData.merch;
 
 export function ShopifyEmbed() {
   return (
-    <section id={sectionIds.merch} data-section={sectionIds.merch} className="py-16 sm:py-24 bg-[#1a1a1a] scroll-mt-24">
+    <section
+      id={sectionIds.merch}
+      data-section={sectionIds.merch}
+      className="flow-section phase-shift bg-[var(--tone-base)] border-b border-[var(--tone-border)] scroll-mt-24"
+    >
       <Container>
-        <h2 className="text-2xl sm:text-3xl font-bold text-white mb-4">
-          {heading}
-        </h2>
-        <p className="text-[#b2b2b2] max-w-xl mb-10">
-          {lead}
-        </p>
-        {shopifyEmbedHtml ? (
-          <div
-            className="min-h-[200px] rounded-lg border border-white/10 overflow-hidden bg-[#050505] [&>iframe]:w-full [&>iframe]:min-h-[400px]"
-            dangerouslySetInnerHTML={{ __html: shopifyEmbedHtml }}
-          />
-        ) : (
-          <div className="min-h-[280px] rounded-lg border border-white/10 flex flex-col items-center justify-center gap-4 bg-[#050505] p-8 text-center">
-            <p className="text-[#b2b2b2]">Store embed will appear here when configured.</p>
+        <div className="mb-10">
+          <p className="text-xs uppercase tracking-[0.14em] text-[var(--tone-muted)] mb-3">
+            Merch / Support Module
+          </p>
+          <h2 className="text-2xl sm:text-3xl font-bold text-[var(--tone-text)] mb-4">{heading}</h2>
+          <p className="text-[var(--tone-muted)] max-w-2xl">{lead}</p>
+        </div>
+
+        <div className="grid lg:grid-cols-[1.2fr_1fr] gap-8 lg:gap-10">
+          <article className="rounded-lg border border-[var(--tone-border)] p-6 sm:p-8 bg-[var(--tone-surface)]">
+            <h3 className="text-lg font-semibold text-[var(--tone-text)] mb-4">Product Grid Placeholder</h3>
+            <div className="grid grid-cols-2 sm:grid-cols-3 gap-4">
+              {Array.from({ length: 6 }).map((_, idx) => (
+                <div key={idx} className="border border-[var(--tone-border)] rounded-md p-3 bg-[var(--tone-surface-2)]">
+                  <div className="aspect-square border border-dashed border-[var(--tone-border)] rounded mb-2" />
+                  <p className="text-xs text-[var(--tone-muted)] uppercase tracking-[0.08em]">
+                    Product Slot {idx + 1}
+                  </p>
+                </div>
+              ))}
+            </div>
+          </article>
+
+          <article className="rounded-lg border border-[var(--tone-border)] p-6 sm:p-8 bg-[var(--tone-surface)]">
+            <h3 className="text-lg font-semibold text-[var(--tone-text)] mb-4">Shopify Embed Container</h3>
+            {shopifyEmbedHtml ? (
+              <div
+                className="min-h-[220px] rounded-lg border border-[var(--tone-border)] overflow-hidden bg-[var(--tone-surface-2)] [&>iframe]:w-full [&>iframe]:min-h-[400px]"
+                dangerouslySetInnerHTML={{ __html: shopifyEmbedHtml }}
+              />
+            ) : (
+              <div className="min-h-[220px] rounded-lg border border-dashed border-[var(--tone-border)] flex items-center justify-center px-6 text-center text-[var(--tone-muted)]">
+                Shopify embed zone
+              </div>
+            )}
+            <p className="mt-4 text-sm text-[var(--tone-muted)]">
+              Optional commerce block for product fulfillment.
+            </p>
+          </article>
+        </div>
+
+        <div className="mt-8 rounded-lg border border-[var(--tone-border)] bg-[var(--tone-surface)] p-6 sm:p-8">
+          <h3 className="text-lg font-semibold text-[var(--tone-text)] mb-2">Support the Production</h3>
+          <p className="text-[var(--tone-muted)] mb-5">
+            Merchandise and direct support help sustain archive updates and future film work.
+          </p>
+          <div className="flex flex-wrap gap-4">
             <a
               href={shopUrl}
               target="_blank"
               rel="noreferrer"
-              className="inline-flex items-center justify-center min-h-[44px] px-6 py-2.5 text-sm font-medium uppercase tracking-wide bg-[#e65c01] text-white rounded hover:bg-[#e65c01]/90 transition-colors"
+              className="inline-flex items-center justify-center min-h-[44px] px-6 py-2.5 text-sm font-medium uppercase tracking-wide bg-[var(--tone-accent)] text-[#031218] rounded hover:bg-[#54b9cc] transition-colors"
             >
-              Shop on MUFON TV
+              Shop Merch
             </a>
+            {donateUrl ? (
+              <a
+                href={donateUrl}
+                target="_blank"
+                rel="noreferrer"
+                className="inline-flex items-center justify-center min-h-[44px] px-6 py-2.5 text-sm font-medium uppercase tracking-wide border border-[var(--tone-border)] text-[var(--tone-text)] rounded hover:bg-[var(--tone-surface-2)] transition-colors"
+              >
+                Contribute
+              </a>
+            ) : (
+              <button
+                type="button"
+                className="inline-flex items-center justify-center min-h-[44px] px-6 py-2.5 text-sm font-medium uppercase tracking-wide border border-[var(--tone-border)] text-[var(--tone-muted)] rounded cursor-not-allowed"
+                disabled
+              >
+                Contribution Link Placeholder
+              </button>
+            )}
           </div>
-        )}
-        <div className="mt-8 flex flex-wrap gap-4">
-          <a
-            href={shopUrl}
-            target="_blank"
-            rel="noreferrer"
-            className="inline-flex items-center justify-center min-h-[44px] px-6 py-2.5 text-sm font-medium uppercase tracking-wide border border-white/40 text-white rounded hover:bg-white/10 transition-colors"
-          >
-            Shop All
-          </a>
-          {donateUrl && (
-            <a
-              href={donateUrl}
-              target="_blank"
-              rel="noreferrer"
-              className="inline-flex items-center justify-center min-h-[44px] px-6 py-2.5 text-sm font-medium uppercase tracking-wide border border-[#0099ff]/50 text-[#0099ff] rounded hover:bg-[#0099ff]/10 transition-colors"
-            >
-              Donate
-            </a>
-          )}
         </div>
       </Container>
     </section>

@@ -7,15 +7,28 @@ export function InfoStrip() {
     <section
       id={sectionIds.info}
       data-section={sectionIds.info}
-      className="bg-[#1a1a1a] border-y border-white/10"
+      className="flow-section--tight bg-[var(--tone-base)] border-b border-[var(--tone-border)]"
       aria-label="Quick info"
     >
-      <div className="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8 py-4">
-        <div className="flex flex-wrap items-center justify-center gap-8 sm:gap-12 text-sm">
-          {items.map((item) => (
-            <div key={item.label} className="flex flex-col sm:flex-row sm:items-baseline gap-1 sm:gap-2">
-              <span className="text-[#b2b2b2] uppercase tracking-wider">{item.label}</span>
-              <span className="text-white font-medium">{item.value}</span>
+      <div className="mx-auto w-full max-w-[1440px] px-4 sm:px-6 lg:px-10">
+        <div className="flex flex-wrap items-start justify-between gap-x-8 gap-y-4 text-sm">
+          {items.map((item, index) => (
+            <div
+              key={item.label}
+              className={`min-w-[190px] flex flex-col gap-1 border-l pl-4 ${
+                index === 0 ? "border-(--tone-accent)" : "border-(--tone-border)"
+              }`}
+            >
+              <span className="text-[var(--tone-muted)] uppercase tracking-wider text-xs">
+                {item.label}
+              </span>
+              <span
+                className={`font-medium ${
+                  index === 0 ? "text-(--tone-accent)" : "text-(--tone-text)"
+                }`}
+              >
+                {item.value}
+              </span>
             </div>
           ))}
         </div>
