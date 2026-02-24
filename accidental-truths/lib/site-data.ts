@@ -69,8 +69,8 @@ export const siteData = {
     hook: "Disclosure is only the beginning. The next chapter.",
     /** Resolve via assets.next.heroBg in lib/assets.ts */
     heroImageKey: "next.heroBg",
-    runtime: "TBD",
-    release: "Coming 2025",
+    runtime: "1:43:10",
+    release: "Coming 2026",
     platform: "MUFON TV",
     producer: "Ron James Television",
     watchUrl: MUFON_VIDEO,
@@ -79,8 +79,8 @@ export const siteData = {
     trailerBridge:
       "The next chapter opens with new testimony, unresolved evidence trails, and rising institutional pressure.",
     infoStrip: [
-      { label: "Release Date", value: "TBD" },
-      { label: "Runtime", value: "TBD" },
+      { label: "Release Date", value: "April" },
+      { label: "Runtime", value: "1:43:10" },
       { label: "Director", value: "Ron James" },
       { label: "Distribution / Platform", value: "MUFON TV" },
       { label: "Awards / Badges", value: "Festival run in progress" },

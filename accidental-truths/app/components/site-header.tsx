@@ -39,12 +39,27 @@ function NavLinks({
 export function SiteHeader() {
   const [scrolled, setScrolled] = useState(false);
   const [menuOpen, setMenuOpen] = useState(false);
+  const [wireframeMode, setWireframeMode] = useState(false);
 
   useEffect(() => {
     const handleScroll = () => setScrolled(window.scrollY > 60);
     window.addEventListener("scroll", handleScroll, { passive: true });
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
+
+  useEffect(() => {
+    const saved = window.localStorage.getItem("wireframe-mode-enabled");
+    const enabled = saved === "true";
+    setWireframeMode(enabled);
+    document.body.classList.toggle("wireframe-mode", enabled);
+  }, []);
+
+  const handleWireframeToggle = () => {
+    const next = !wireframeMode;
+    setWireframeMode(next);
+    document.body.classList.toggle("wireframe-mode", next);
+    window.localStorage.setItem("wireframe-mode-enabled", String(next));
+  };
 
   const headerBg = scrolled
     ? "bg-[var(--tone-base)]/95 backdrop-blur-md border-b border-[var(--tone-border)]"
@@ -70,6 +85,27 @@ export function SiteHeader() {
             className="hidden md:flex items-center gap-8"
           >
             <NavLinks onLinkClick={() => setMenuOpen(false)} />
+            <button
+              type="button"
+              onClick={handleWireframeToggle}
+              aria-label="Toggle wireframe mode"
+              aria-pressed={wireframeMode}
+              className="inline-flex items-center gap-2 text-xs uppercase tracking-wide text-[var(--tone-muted)] hover:text-[var(--tone-text)] transition-colors"
+            >
+              <span>Wireframe</span>
+              <span
+                className={`relative h-5 w-10 rounded-full border border-[var(--tone-border)] transition-colors ${
+                  wireframeMode ? "bg-[var(--tone-accent)]" : "bg-[var(--tone-surface)]"
+                }`}
+                aria-hidden
+              >
+                <span
+                  className={`absolute top-0.5 h-3.5 w-3.5 rounded-full bg-white transition-transform ${
+                    wireframeMode ? "translate-x-5" : "translate-x-1"
+                  }`}
+                />
+              </span>
+            </button>
             <a
               href={CTA.href.startsWith("#") ? CTA.href : CTA.href}
               target={CTA.href.startsWith("#") ? undefined : "_blank"}
@@ -113,6 +149,27 @@ export function SiteHeader() {
           aria-label="Mobile"
         >
           <NavLinks onNavigate={() => setMenuOpen(false)} onLinkClick={() => setMenuOpen(false)} />
+          <button
+            type="button"
+            onClick={handleWireframeToggle}
+            aria-label="Toggle wireframe mode"
+            aria-pressed={wireframeMode}
+            className="inline-flex items-center gap-3 text-sm uppercase tracking-wide text-[var(--tone-muted)]"
+          >
+            <span>Wireframe</span>
+            <span
+              className={`relative h-6 w-11 rounded-full border border-[var(--tone-border)] transition-colors ${
+                wireframeMode ? "bg-[var(--tone-accent)]" : "bg-[var(--tone-surface)]"
+              }`}
+              aria-hidden
+            >
+              <span
+                className={`absolute top-[3px] h-4 w-4 rounded-full bg-white transition-transform ${
+                  wireframeMode ? "translate-x-5" : "translate-x-1"
+                }`}
+              />
+            </span>
+          </button>
           <a
             href={CTA.href.startsWith("#") ? CTA.href : CTA.href}
             target={CTA.href.startsWith("#") ? undefined : "_blank"}

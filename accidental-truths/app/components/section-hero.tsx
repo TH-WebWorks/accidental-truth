@@ -50,9 +50,6 @@ export function SectionHero() {
           </div>
           <div className="mt-8 flex flex-wrap gap-3">
             <span className="inline-flex items-center rounded-full border border-[var(--tone-border)] bg-[var(--tone-surface)]/70 px-3 py-1 text-xs uppercase tracking-[0.08em] text-[var(--tone-muted)]">
-              {d.runtime}
-            </span>
-            <span className="inline-flex items-center rounded-full border border-[var(--tone-border)] bg-[var(--tone-surface)]/70 px-3 py-1 text-xs uppercase tracking-[0.08em] text-[var(--tone-muted)]">
               {d.release}
             </span>
             <span className="inline-flex items-center rounded-full border border-[var(--tone-border)] bg-[var(--tone-surface)]/70 px-3 py-1 text-xs uppercase tracking-[0.08em] text-[var(--tone-muted)]">

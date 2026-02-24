@@ -1,16 +1,17 @@
 "use client";
 
-import { useMemo, useState } from "react";
+import { useMemo, useRef, useState } from "react";
 import { mufonUfoRevelations } from "../../../lib/mufon-ufo-revelations";
 import { siteData } from "../../../lib/site-data";
 
 const { metadata } = mufonUfoRevelations;
 const legacyTrailerUrl = siteData.originalFilm.trailerUrl;
 const legacyTrailerThumb = siteData.originalFilm.trailerThumbnailUrl;
-const legacyPrimaryCta = siteData.originalFilm.secondaryFeature;
 
 export function LegacyHeroUfo() {
   const [isPlaying, setIsPlaying] = useState(false);
+  const [isInteractive, setIsInteractive] = useState(false);
+  const iframeRef = useRef<HTMLIFrameElement>(null);
   const playUrl = useMemo(
     () =>
       legacyTrailerUrl.includes("?")
@@ -18,6 +19,11 @@ export function LegacyHeroUfo() {
         : `${legacyTrailerUrl}?autoplay=1`,
     [],
   );
+
+  const enableInteraction = () => {
+    setIsInteractive(true);
+    requestAnimationFrame(() => iframeRef.current?.focus());
+  };
 
   return (
     <div className="legacy-casefile__subsection">
@@ -34,54 +40,61 @@ export function LegacyHeroUfo() {
           <span>{metadata.imdbScore}</span>
         </div>
 
-        <div className="legacy-casefile__overviewGrid">
-          <div className="legacy-casefile__overviewMedia">
-            {!isPlaying ? (
-              <button
-                type="button"
-                onClick={() => setIsPlaying(true)}
-                className="group relative w-full aspect-video rounded-lg overflow-hidden border border-(--tone-border) bg-(--tone-surface)"
-                aria-label="Play legacy trailer"
-              >
-                {legacyTrailerThumb ? (
-                  <img
-                    src={legacyTrailerThumb}
-                    alt="Legacy trailer thumbnail"
-                    className="absolute inset-0 h-full w-full object-cover opacity-80"
-                  />
-                ) : (
-                  <div className="absolute inset-0 bg-(--tone-surface-2)" />
-                )}
-                <div className="absolute inset-0 bg-black/35" />
-                <div className="absolute inset-0 flex items-center justify-center">
-                  <span className="inline-flex items-center justify-center min-h-[40px] px-5 py-2 text-xs font-medium uppercase tracking-wide bg-(--tone-accent) text-[#031218] rounded group-hover:bg-[#54b9cc] transition-colors">
-                    Watch Trailer
-                  </span>
-                </div>
-              </button>
-            ) : (
-              <div className="aspect-video w-full rounded-lg overflow-hidden border border-(--tone-border) bg-(--tone-surface)">
-                <iframe
-                  src={playUrl}
-                  title="Legacy trailer"
-                  allow="accelerometer; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-                  allowFullScreen
-                  className="h-full w-full"
-                />
-              </div>
-            )}
-          </div>
-
-          <div className="legacy-casefile__overviewCopy">
-            <a
-              href={legacyPrimaryCta.ctaHref}
-              target="_blank"
-              rel="noreferrer"
-              className="inline-flex items-center justify-center min-h-[44px] px-6 py-2.5 text-sm font-medium uppercase tracking-wide border border-(--tone-border) text-(--tone-text) rounded hover:bg-(--tone-surface-2) transition-colors"
+        <div className="legacy-casefile__overviewMedia">
+          {!isPlaying ? (
+            <button
+              type="button"
+              onClick={() => {
+                setIsPlaying(true);
+                setIsInteractive(false);
+              }}
+              className="group relative w-full aspect-video rounded-lg overflow-hidden border border-(--tone-border) bg-(--tone-surface)"
+              aria-label="Play legacy trailer"
             >
-              {legacyPrimaryCta.ctaLabel}
-            </a>
-          </div>
+              {legacyTrailerThumb ? (
+                <img
+                  src={legacyTrailerThumb}
+                  alt="Legacy trailer thumbnail"
+                  className="absolute inset-0 h-full w-full object-cover opacity-80"
+                />
+              ) : (
+                <div className="absolute inset-0 bg-(--tone-surface-2)" />
+              )}
+              <div className="absolute inset-0 bg-black/35" />
+              <div className="absolute inset-0 flex items-center justify-center">
+                <span className="inline-flex items-center justify-center min-h-[40px] px-5 py-2 text-xs font-medium uppercase tracking-wide bg-(--tone-accent) text-[#031218] rounded group-hover:bg-[#54b9cc] transition-colors">
+                  Watch Trailer
+                </span>
+              </div>
+            </button>
+          ) : (
+            <div
+              className="relative aspect-video w-full rounded-lg overflow-hidden border border-(--tone-border) bg-(--tone-surface)"
+              onMouseLeave={() => setIsInteractive(false)}
+            >
+              <iframe
+                ref={iframeRef}
+                src={playUrl}
+                title="Legacy trailer"
+                allow="accelerometer; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                allowFullScreen
+                tabIndex={isInteractive ? 0 : -1}
+                className={`h-full w-full ${isInteractive ? "pointer-events-auto" : "pointer-events-none"}`}
+              />
+              {!isInteractive && (
+                <button
+                  type="button"
+                  onClick={enableInteraction}
+                  className="absolute inset-0 flex items-center justify-center bg-black/25 text-(--tone-text) transition-colors hover:bg-black/35 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-(--tone-accent)"
+                  aria-label="Enable legacy trailer interaction"
+                >
+                  <span className="rounded-full border border-(--tone-border) bg-(--tone-surface)/90 px-4 py-2 text-xs font-medium uppercase tracking-wide text-(--tone-muted)">
+                    Click to interact
+                  </span>
+                </button>
+              )}
+            </div>
+          )}
         </div>
       </div>
     </div>

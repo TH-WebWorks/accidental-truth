@@ -11,10 +11,7 @@ export function TrailerSynopsisSection() {
       id={sectionIds.trailer}
       title="Trailer"
       trailerUrl={trailerEmbedUrl}
-      trailerThumbnailUrl={next.trailerThumbnailUrl}
       bridgeSentence={next.trailerBridge}
-      ctaPrimary={{ label: "Watch Trailer", href: trailerEmbedUrl }}
-      ctaSecondary={{ label: "Explore the Archive", href: `#${sectionIds.archive}` }}
     />
   );
 }
