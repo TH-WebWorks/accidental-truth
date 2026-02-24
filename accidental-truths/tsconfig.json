@@ -30,5 +30,13 @@
     ".next/dev/types/**/*.ts",
     "**/*.mts"
   ],
-  "exclude": ["node_modules"]
+  "exclude": [
+    "node_modules",
+    "app/sections/AboutSection/design/**",
+    "app/sections/Hero/design/**",
+    "app/sections/InfoStrip/design/**",
+    "app/sections/design/**",
+    "app/sections/ArchiveTeaser/design/ai-studio/ArchiveTeaser/vite.config.ts",
+    "app/sections/ArchiveTeaser/design/ai-studio/ArchiveTeaser/src/main.tsx"
+  ]
 }
