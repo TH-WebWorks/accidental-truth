@@ -10,6 +10,22 @@ import posterAtNext from "../assets/poster_at_next.webp";
 import posterAtUfoRevelations from "../assets/poster_at_ufo_revelations.webp";
 import ronLou from "../assets/ron_lou.jpg";
 
+import screenGrab1 from "../assets/screen_grabs/at_next/1.webp";
+import screenGrab2 from "../assets/screen_grabs/at_next/2.webp";
+import screenGrab3 from "../assets/screen_grabs/at_next/3.webp";
+import screenGrab4 from "../assets/screen_grabs/at_next/4.webp";
+import screenGrab5 from "../assets/screen_grabs/at_next/5.webp";
+import screenGrab6 from "../assets/screen_grabs/at_next/6.webp";
+import screenGrab7 from "../assets/screen_grabs/at_next/7.webp";
+import screenGrab8 from "../assets/screen_grabs/at_next/8.webp";
+import screenGrab9 from "../assets/screen_grabs/at_next/9.webp";
+import screenGrab10 from "../assets/screen_grabs/at_next/10.webp";
+import screenGrab11 from "../assets/screen_grabs/at_next/11.webp";
+import screenGrab12 from "../assets/screen_grabs/at_next/12.webp";
+import screenGrab13 from "../assets/screen_grabs/at_next/13.webp";
+import screenGrab14 from "../assets/screen_grabs/at_next/14.webp";
+import screenGrab15 from "../assets/screen_grabs/at_next/15.webp";
+
 /** Fallback image when a gallery/merch asset is not yet in assets. Use local only. */
 const fallbackImage = posterAtUfoRevelations;
 
@@ -89,6 +105,24 @@ export const assets = {
   },
   /** Ordered gallery keys for MUFON display order. */
   galleryKeys,
+  /** Screen grabs for Accidental Truth: NEXT (at_next), in display order. */
+  screenGrabsAtNext: [
+    screenGrab1,
+    screenGrab2,
+    screenGrab3,
+    screenGrab4,
+    screenGrab5,
+    screenGrab6,
+    screenGrab7,
+    screenGrab8,
+    screenGrab9,
+    screenGrab10,
+    screenGrab11,
+    screenGrab12,
+    screenGrab13,
+    screenGrab14,
+    screenGrab15,
+  ],
 } as const;
 
 export type Assets = typeof assets;

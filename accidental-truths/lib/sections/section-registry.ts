@@ -9,6 +9,7 @@ import { HeroSection } from "@/app/sections/Hero";
 import { InfoStripSection } from "@/app/sections/InfoStrip";
 import { StorySoFarSection } from "@/app/sections/StorySoFar/StorySoFar";
 import { TrailerSynopsisSection } from "@/app/sections/TrailerSynopsis";
+import { ScreenGrabsSection } from "@/app/sections/ScreenGrabs";
 import { ArchiveTeaserSection } from "@/app/sections/ArchiveTeaser/ArchiveTeaser";
 import { SecondaryFilmSection } from "@/app/sections/SecondaryFilm/SecondaryFilm";
 import { ShopifyEmbedSection } from "@/app/sections/ShopifyEmbed";
@@ -52,6 +53,12 @@ export const sectionRegistry: readonly HomeSectionEntry[] = [
     label: "Trailer",
     component: TrailerSynopsisSection,
     dataKey: homepageSectionDataKeys.trailer,
+  },
+  {
+    id: sectionIds.gallery,
+    label: "Gallery",
+    component: ScreenGrabsSection,
+    dataKey: homepageSectionDataKeys.gallery,
   },
   {
     id: sectionIds.archive,

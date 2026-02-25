@@ -1,0 +1,10 @@
+{
+  "name": "accidental-truth",
+  "private": true,
+  "description": "Accidental Truth: UFO Revelations — official site",
+  "scripts": {
+    "dev": "cd accidental-truths && npx next dev",
+    "build": "cd accidental-truths && npx next build",
+    "start": "cd accidental-truths && npx next start"
+  }
+}
