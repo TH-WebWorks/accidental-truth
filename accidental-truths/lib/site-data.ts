@@ -473,7 +473,7 @@ export const siteData = {
     heading: "Merch",
     lead: "Official merch and support options for the production.",
     shopifyEmbedHtml: "", // Paste Shopify embed script/section when ready
-    shopUrl: MUFON_VIDEO,
+    shopUrl: "https://www.mufontelevision.com/store/",
     donateUrl: "" as string | undefined,
     gridHeading: "Featured merch",
     storeHeading: "Store",

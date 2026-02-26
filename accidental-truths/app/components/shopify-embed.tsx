@@ -1,24 +1,54 @@
+import Image from "next/image";
 import { Container } from "./Container";
 import { sectionIds, siteData } from "../../lib/site-data";
+import tshirtImage from "../../assets/store/t-shirt.webp";
+import mugImage from "../../assets/store/mug.webp";
+import mousepadImage from "../../assets/store/mousepad.webp";
+import posterImage from "../../assets/store/signed-poster.jpg";
+import dvdImage from "../../assets/store/dvd-blueray.png";
 
 const {
   heading,
   lead,
-  shopifyEmbedHtml,
   shopUrl,
   donateUrl,
   gridHeading,
-  storeHeading,
-  storePlaceholder,
   supportHeading,
   supportLead,
 } = siteData.merch;
 
 export function ShopifyEmbed() {
   const featuredMerch = [
-    { title: "Official Poster", meta: "Collector Print" },
-    { title: "Signature Tee", meta: "Limited Run" },
-    { title: "Film Bundle", meta: "Digital + Bonus" },
+    {
+      title: "Limited Edition T-Shirt",
+      meta: "Apparel",
+      href: "https://www.mufontelevision.com/product/the-limited-edition-accidental-truth-t-shirt/?",
+      image: tshirtImage,
+    },
+    {
+      title: "15 oz Coffee Mug",
+      meta: "Swag",
+      href: "https://www.mufontelevision.com/product/accidental-truth-15-oz-coffee-mug/?",
+      image: mugImage,
+    },
+    {
+      title: "Accidental Truth Mouse Pad",
+      meta: "Swag",
+      href: "https://www.mufontelevision.com/product/the-accidental-truth-mouse-pad/?",
+      image: mousepadImage,
+    },
+    {
+      title: "Framed Autographed Poster",
+      meta: "Collector",
+      href: "https://www.mufontelevision.com/product/matthew-modine-framed-autographed-poster-11-x-17-free-shipping/?",
+      image: posterImage,
+    },
+    {
+      title: "Blu-ray / DVD",
+      meta: "Physical Media",
+      href: "https://www.mufontelevision.com/product/accidental-truth-ufo-revelations-now-on-dvd-blu-ray/?",
+      image: dvdImage,
+    },
   ];
 
   return (
@@ -36,50 +66,39 @@ export function ShopifyEmbed() {
           <p className="max-w-2xl text-[var(--tone-muted)]">{lead}</p>
         </div>
 
-        <div className="grid gap-8 lg:grid-cols-[1.1fr_0.9fr] lg:gap-10">
-          <article className="rounded-xl border border-[var(--tone-border)] bg-[var(--tone-surface)] p-6 sm:p-8">
-            <h3 className="mb-4 text-lg font-semibold text-[var(--tone-text)]">{gridHeading}</h3>
-            <p className="mb-5 max-w-xl text-sm text-[var(--tone-muted)]">
-              Featured support items from the official store.
-            </p>
-            <div className="grid gap-4 sm:grid-cols-3">
-              {featuredMerch.map((item) => (
-                <div
-                  key={item.title}
-                  className="rounded-lg border border-[var(--tone-border)] bg-[var(--tone-surface-2)] p-3"
-                >
-                  <div className="mb-3 aspect-square rounded border border-dashed border-[var(--tone-border)] bg-[var(--tone-base)]/30" />
-                  <p className="text-xs font-semibold uppercase tracking-[0.08em] text-[var(--tone-text)]">
-                    {item.title}
-                  </p>
-                  <p className="mt-1 text-[0.72rem] uppercase tracking-[0.08em] text-[var(--tone-muted)]">
-                    {item.meta}
-                  </p>
+        <article className="rounded-xl border border-[var(--tone-border)] bg-[var(--tone-surface)] p-6 sm:p-8">
+          <h3 className="mb-4 text-lg font-semibold text-[var(--tone-text)]">{gridHeading}</h3>
+          <p className="mb-5 max-w-3xl text-sm text-[var(--tone-muted)]">
+            Featured support items from the official MUFON store. Tap any item to open its product page.
+          </p>
+          <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-5">
+            {featuredMerch.map((item) => (
+              <a
+                key={item.title}
+                href={item.href}
+                target="_blank"
+                rel="noreferrer"
+                className="rounded-lg border border-[var(--tone-border)] bg-[var(--tone-surface-2)] p-3 transition-colors hover:bg-[var(--tone-surface)]"
+              >
+                <div className="relative mb-3 aspect-square overflow-hidden rounded border border-[var(--tone-border)] bg-[var(--tone-base)]/30">
+                  <Image
+                    src={item.image}
+                    alt={item.title}
+                    fill
+                    sizes="(max-width: 640px) 45vw, (max-width: 1024px) 30vw, 220px"
+                    className="object-cover"
+                  />
                 </div>
-              ))}
-            </div>
-          </article>
-
-          <article className="rounded-xl border border-[var(--tone-border)] bg-[var(--tone-surface)] p-6 sm:p-8">
-            <h3 className="mb-4 text-lg font-semibold text-[var(--tone-text)]">{storeHeading}</h3>
-            {shopifyEmbedHtml ? (
-              <div
-                className="min-h-[220px] overflow-hidden rounded-lg border border-[var(--tone-border)] bg-[var(--tone-surface-2)] [&>iframe]:min-h-[400px] [&>iframe]:w-full"
-                dangerouslySetInnerHTML={{ __html: shopifyEmbedHtml }}
-              />
-            ) : (
-              <div className="flex min-h-[220px] items-center justify-center rounded-lg border border-dashed border-[var(--tone-border)] px-6 text-center text-[var(--tone-muted)]">
-                <div>
-                  <p className="text-xs font-semibold uppercase tracking-[0.1em] text-[var(--tone-muted)]">
-                    Store Module
-                  </p>
-                  <p className="mt-2">{storePlaceholder}</p>
-                </div>
-              </div>
-            )}
-            <p className="mt-4 text-sm text-[var(--tone-muted)]">Secure checkout will appear here.</p>
-          </article>
-        </div>
+                <p className="text-xs font-semibold uppercase tracking-[0.08em] text-[var(--tone-text)]">
+                  {item.title}
+                </p>
+                <p className="mt-1 text-[0.72rem] uppercase tracking-[0.08em] text-[var(--tone-muted)]">
+                  {item.meta}
+                </p>
+              </a>
+            ))}
+          </div>
+        </article>
 
         <div className="mt-8 rounded-xl border border-[var(--tone-border)] bg-[var(--tone-surface)] p-6 sm:p-8">
           <h3 className="mb-2 text-lg font-semibold text-[var(--tone-text)]">{supportHeading}</h3>
