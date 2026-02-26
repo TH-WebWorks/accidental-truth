@@ -2,6 +2,11 @@ import { SiteHeader } from "./components/site-header";
 import { LegacyCaseFile } from "./components/legacy";
 import { sectionRegistry } from "../lib/sections/section-registry";
 import { sectionIds } from "../lib/site-data";
+import { SHOW_EVIDENCE_INDEX } from "../lib/feature-flags";
+
+const visibleSections = sectionRegistry.filter(
+  (entry) => entry.id !== sectionIds.archive || SHOW_EVIDENCE_INDEX
+);
 
 export default function Home() {
   return (
@@ -9,7 +14,7 @@ export default function Home() {
       <SiteHeader />
 
       <main className="min-h-screen bg-(--tone-base) text-(--tone-text)">
-        {sectionRegistry.map((entry) => {
+        {visibleSections.map((entry) => {
           const SectionComponent = entry.component;
 
           return (
