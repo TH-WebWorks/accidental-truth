@@ -1,5 +1,6 @@
 import { SiteHeader } from "./components/site-header";
 import { LegacyCaseFile } from "./components/legacy";
+import { SiteFooterSection } from "./sections/SiteFooter";
 import { sectionRegistry } from "../lib/sections/section-registry";
 import { sectionIds } from "../lib/site-data";
 import { SHOW_EVIDENCE_INDEX } from "../lib/feature-flags";
@@ -24,6 +25,7 @@ export default function Home() {
           );
         })}
       </main>
+      <SiteFooterSection />
     </>
   );
 }
