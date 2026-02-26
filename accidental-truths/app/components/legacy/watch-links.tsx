@@ -8,6 +8,9 @@ export function WatchLinks() {
     <div className="legacy-casefile__subsection">
       <div className="legacy-casefile__subsectionHead">
         <h3 className="legacy-casefile__subsectionTitle">{legacy.watchLinksHeading}</h3>
+        <p className="legacy-casefile__watchIntro">
+          Stream on these platforms. Choose rent or free options below.
+        </p>
       </div>
       <div className="legacy-casefile__watchGrid">
         {watchLinks.map((link) => (
@@ -18,7 +21,10 @@ export function WatchLinks() {
             rel="noreferrer"
             className="legacy-casefile__watchCard"
           >
-            {link.label}
+            <span className="legacy-casefile__watchLabel">{link.label}</span>
+            <span className="legacy-casefile__watchType">
+              {link.type === "free" ? "Free" : "Rent"}
+            </span>
           </a>
         ))}
       </div>

@@ -273,6 +273,11 @@ export const siteData = {
         type: "rent" as const,
       },
       {
+        label: "RENT IT ON APPLE TV",
+        href: "https://tv.apple.com/us/movie/accidental-truth-ufo-revelations/umc.cmc.15ruz07i1ubedpn2d2non4fu9",
+        type: "rent" as const,
+      },
+      {
         label: "SEE IT FREE ON TUBI",
         href: "https://tubitv.com/search/accidental%20truth",
         type: "free" as const,

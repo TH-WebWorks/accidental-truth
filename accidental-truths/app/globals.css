@@ -314,10 +314,17 @@ button {
   gap: 0.75rem;
 }
 
+.legacy-casefile__watchIntro {
+  margin: 0.45rem 0 0;
+  font-size: 0.9rem;
+  color: var(--tone-muted);
+}
+
 .legacy-casefile__watchCard {
   display: flex;
-  align-items: center;
-  justify-content: center;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 0.75rem;
   min-height: 44px;
   padding: 0.8rem 1rem;
   border-radius: 10px;
@@ -336,6 +343,22 @@ button {
 .legacy-casefile__watchCard:hover {
   border-color: rgba(255, 255, 255, 0.24);
   background: rgba(255, 255, 255, 0.04);
+}
+
+.legacy-casefile__watchLabel {
+  text-align: left;
+}
+
+.legacy-casefile__watchType {
+  flex: 0 0 auto;
+  border: 1px solid var(--tone-border);
+  border-radius: 999px;
+  padding: 0.2rem 0.5rem;
+  font-size: 0.62rem;
+  line-height: 1;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--tone-muted);
 }
 
 .legacy-casefile__prose {
