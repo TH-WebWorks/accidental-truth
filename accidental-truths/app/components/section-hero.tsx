@@ -34,34 +34,34 @@ export function SectionHero() {
           <p className="text-xs uppercase tracking-[0.14em] text-[var(--tone-muted)] mb-4">
             {d.heroKicker}
           </p>
-          <h1 className="text-4xl sm:text-5xl md:text-6xl font-bold text-[var(--tone-text)] tracking-tight max-w-3xl">
+          <h1 className="max-w-3xl text-4xl font-bold tracking-tight text-[var(--tone-text)] sm:text-5xl md:text-6xl">
             {d.title}
           </h1>
-          <p className="mt-4 text-lg sm:text-xl text-[var(--tone-muted)] max-w-2xl">
+          <p className="mt-4 max-w-2xl text-lg text-[var(--tone-muted)] sm:text-xl">
             {d.hook}
           </p>
-          <div className="mt-8 flex flex-wrap gap-4">
+          <div className="mt-8 flex flex-wrap gap-3">
             <a
               href={`#${sectionIds.trailer}`}
-              className="inline-flex items-center justify-center min-h-[48px] px-8 py-3 text-sm font-medium uppercase tracking-wide bg-[var(--tone-accent)] text-[#031218] rounded hover:bg-[#54b9cc] transition-colors"
+              className="inline-flex min-h-[48px] items-center justify-center rounded-lg bg-[var(--tone-accent)] px-7 py-3 text-sm font-semibold uppercase tracking-[0.08em] text-[#031218] transition-colors hover:bg-[#54b9cc]"
             >
               {d.heroPrimaryCtaLabel}
             </a>
             <a
               href={`#${sectionIds.merch}`}
-              className="inline-flex items-center justify-center min-h-[48px] px-8 py-3 text-sm font-medium uppercase tracking-wide border border-[var(--tone-border)] text-[var(--tone-text)] rounded hover:bg-[var(--tone-surface-2)] transition-colors"
+              className="inline-flex min-h-[48px] items-center justify-center rounded-lg border border-[var(--tone-border)] bg-[var(--tone-surface)]/60 px-7 py-3 text-sm font-semibold uppercase tracking-[0.08em] text-[var(--tone-text)] transition-colors hover:bg-[var(--tone-surface-2)]"
             >
               {d.heroSecondaryCtaLabel}
             </a>
           </div>
-          <div className="mt-8 flex flex-wrap gap-3">
-            <span className="inline-flex items-center rounded-full border border-[var(--tone-border)] bg-[var(--tone-surface)]/70 px-3 py-1 text-xs uppercase tracking-[0.08em] text-[var(--tone-muted)]">
+          <div className="mt-7 flex flex-wrap gap-2.5">
+            <span className="inline-flex items-center rounded-full border border-[var(--tone-border)] bg-[var(--tone-surface)]/80 px-3 py-1 text-[0.68rem] font-semibold uppercase tracking-[0.08em] text-[var(--tone-muted)]">
               {d.release}
             </span>
-            <span className="inline-flex items-center rounded-full border border-[var(--tone-border)] bg-[var(--tone-surface)]/70 px-3 py-1 text-xs uppercase tracking-[0.08em] text-[var(--tone-muted)]">
+            <span className="inline-flex items-center rounded-full border border-[var(--tone-border)] bg-[var(--tone-surface)]/80 px-3 py-1 text-[0.68rem] font-semibold uppercase tracking-[0.08em] text-[var(--tone-muted)]">
               {d.platform}
             </span>
-            <span className="inline-flex items-center rounded-full border border-[var(--tone-border)] bg-[var(--tone-surface)]/70 px-3 py-1 text-xs uppercase tracking-[0.08em] text-[var(--tone-muted)]">
+            <span className="inline-flex items-center rounded-full border border-[var(--tone-border)] bg-[var(--tone-surface)]/80 px-3 py-1 text-[0.68rem] font-semibold uppercase tracking-[0.08em] text-[var(--tone-muted)]">
               {d.producer}
             </span>
           </div>

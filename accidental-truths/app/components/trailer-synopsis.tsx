@@ -60,24 +60,22 @@ export function TrailerSynopsis({
       className="flow-section bg-[var(--tone-base)] border-b border-[var(--tone-border)] scroll-mt-24"
     >
       <Container>
-        <h2 className="text-2xl sm:text-3xl font-bold text-[var(--tone-text)] mb-4 text-center">
-          {title}
-        </h2>
-        {bridgeSentence && (
-          <p className="text-[var(--tone-muted)] text-center max-w-3xl mx-auto mb-8">
-            {bridgeSentence}
+        <div className="mx-auto mb-8 max-w-4xl text-center">
+          <p className="mb-3 text-xs font-semibold uppercase tracking-[0.14em] text-[var(--tone-muted)]">
+            Featured Clip
           </p>
-        )}
-        {trailerIntro && (
-          <p className="text-[var(--tone-muted)] text-center max-w-4xl mx-auto mb-8">
-            {trailerIntro}
+          <h2 className="text-2xl font-semibold text-[var(--tone-text)] sm:text-3xl">
+            {title}
+          </h2>
+          <p className="mx-auto mt-4 max-w-3xl text-[var(--tone-muted)]">
+            {trailerIntro ?? bridgeSentence}
           </p>
-        )}
+        </div>
 
         <div className="max-w-5xl mx-auto">
           {embedUrl ? (
             <div
-              className="relative aspect-video w-full rounded-lg overflow-hidden bg-[var(--tone-surface)] border border-[var(--tone-border)] shadow-[0_10px_28px_rgba(0,0,0,0.34)]"
+              className="relative aspect-video w-full overflow-hidden rounded-xl border border-[var(--tone-border)] bg-[var(--tone-surface)] shadow-[0_16px_36px_rgba(0,0,0,0.36)]"
               onMouseLeave={() => setIsInteractive(false)}
             >
               <iframe
@@ -93,21 +91,21 @@ export function TrailerSynopsis({
                 <button
                   type="button"
                   onClick={enableInteraction}
-                  className="absolute inset-0 flex items-center justify-center bg-black/25 text-[var(--tone-text)] transition-colors hover:bg-black/35 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[var(--tone-accent)]"
+                  className="absolute inset-0 flex items-center justify-center bg-black/30 text-[var(--tone-text)] transition-colors hover:bg-black/40 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[var(--tone-accent)]"
                   aria-label="Enable trailer interaction"
                 >
-                  <span className="rounded-full border border-[var(--tone-border)] bg-[var(--tone-surface)]/90 px-4 py-2 text-xs font-medium uppercase tracking-wide text-[var(--tone-muted)]">
+                  <span className="rounded-full border border-[var(--tone-border)] bg-[var(--tone-surface)]/90 px-4 py-2 text-xs font-semibold uppercase tracking-[0.08em] text-[var(--tone-muted)]">
                     Click to interact
                   </span>
                 </button>
               )}
             </div>
           ) : (
-            <div className="aspect-video w-full rounded-lg border border-dashed border-[var(--tone-border)] bg-[var(--tone-surface)] p-8 sm:p-10 flex flex-col justify-center items-center text-center">
-              <p className="text-xs uppercase tracking-[0.12em] text-[var(--tone-muted)]">
+            <div className="flex aspect-video w-full flex-col items-center justify-center rounded-xl border border-dashed border-[var(--tone-border)] bg-[var(--tone-surface)] p-8 text-center sm:p-10">
+              <p className="text-xs font-semibold uppercase tracking-[0.12em] text-[var(--tone-muted)]">
                 {comingSoonLabel ?? "Coming Soon"}
               </p>
-              <p className="mt-3 max-w-xl text-[var(--tone-muted)]">
+              <p className="mt-3 max-w-xl leading-relaxed text-[var(--tone-muted)]">
                 {placeholderMessage ?? "Trailer will be published here soon."}
               </p>
             </div>

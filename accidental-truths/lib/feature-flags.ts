@@ -3,4 +3,4 @@
  */
 
 /** When false, the Classified Evidence Archive / Evidence Index section is hidden. */
-export const SHOW_EVIDENCE_INDEX = true;
+export const SHOW_EVIDENCE_INDEX = false;

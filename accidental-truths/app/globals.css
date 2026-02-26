@@ -262,9 +262,9 @@ button {
 
 .legacy-casefile__overviewCard {
   border: 1px solid var(--tone-border);
-  border-radius: 12px;
+  border-radius: 14px;
   background: linear-gradient(160deg, rgba(255, 255, 255, 0.035), rgba(255, 255, 255, 0.015));
-  padding: clamp(1.1rem, 3vw, 1.75rem);
+  padding: clamp(1.15rem, 3vw, 1.85rem);
 }
 
 .legacy-casefile__overviewMeta {
@@ -325,9 +325,9 @@ button {
   align-items: flex-start;
   justify-content: space-between;
   gap: 0.75rem;
-  min-height: 44px;
-  padding: 0.8rem 1rem;
-  border-radius: 10px;
+  min-height: 46px;
+  padding: 0.85rem 1rem;
+  border-radius: 12px;
   border: 1px solid var(--tone-border);
   background: rgba(255, 255, 255, 0.02);
   color: var(--tone-text);
@@ -369,8 +369,8 @@ button {
 
 .legacy-casefile__card {
   border: 1px solid var(--tone-border);
-  border-radius: 10px;
-  padding: clamp(1rem, 2.6vw, 1.45rem);
+  border-radius: 12px;
+  padding: clamp(1.05rem, 2.6vw, 1.5rem);
   background: rgba(255, 255, 255, 0.02);
 }
 
@@ -414,7 +414,7 @@ button {
 
 .legacy-casefile__nameCell {
   border: 1px solid var(--tone-border);
-  border-radius: 8px;
+  border-radius: 10px;
   padding: 0.65rem 0.8rem;
   font-size: 0.88rem;
   color: var(--tone-text);
@@ -440,7 +440,7 @@ button {
   display: block;
   height: 100%;
   border: 1px solid var(--tone-border);
-  border-radius: 10px;
+  border-radius: 12px;
   padding: 0.75rem 0.85rem;
   color: var(--tone-text);
   text-decoration: none;
@@ -469,7 +469,7 @@ button {
   flex-direction: column;
   gap: 0.45rem;
   border: 1px solid var(--tone-border);
-  border-radius: 10px;
+  border-radius: 12px;
   padding: 0.9rem;
   text-decoration: none;
   background: rgba(255, 255, 255, 0.015);
