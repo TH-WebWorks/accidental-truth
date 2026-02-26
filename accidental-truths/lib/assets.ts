@@ -25,6 +25,18 @@ import next_12 from "../assets/screen_grabs/at_next/12.webp";
 import next_13 from "../assets/screen_grabs/at_next/13.webp";
 import next_14 from "../assets/screen_grabs/at_next/14.webp";
 import next_15 from "../assets/screen_grabs/at_next/15.webp";
+import ufo_controlRoom from "../assets/screen_grabs/at_ufo_rev/ControlRoom-960x540.jpg";
+import ufo_crash1 from "../assets/screen_grabs/at_ufo_rev/Crash1-960x540.jpg";
+import ufo_elizabethApril from "../assets/screen_grabs/at_ufo_rev/ElizabethApril-960x540.jpg";
+import ufo_hangar from "../assets/screen_grabs/at_ufo_rev/Hangar-960x540.jpg";
+import ufo_lab2 from "../assets/screen_grabs/at_ufo_rev/lab2-960x540.jpg";
+import ufo_lou from "../assets/screen_grabs/at_ufo_rev/Lou-960x540.jpg";
+import ufo_michioKaku from "../assets/screen_grabs/at_ufo_rev/MichioKaku-960x540.jpg";
+import ufo_ralph from "../assets/screen_grabs/at_ufo_rev/Ralph-960x540.jpg";
+import ufo_report from "../assets/screen_grabs/at_ufo_rev/Report-960x540.jpg";
+import ufo_richardDolan from "../assets/screen_grabs/at_ufo_rev/RichardDolan-960x540.jpg";
+import ufo_timBurchett from "../assets/screen_grabs/at_ufo_rev/Tim-Burchett-960x540.jpg";
+import ufo_underwater from "../assets/screen_grabs/at_ufo_rev/underwater-960x540.jpg";
 
 /** Fallback image when a gallery/merch asset is not yet in assets. Use local only. */
 const fallbackImage = posterAtUfoRevelations;
@@ -53,18 +65,18 @@ const galleryKeys = [
 type GalleryKey = (typeof galleryKeys)[number];
 
 const galleryMap: Record<GalleryKey, typeof fallbackImage> = {
-  "Tim-Burchett": fallbackImage,
-  Lou: fallbackImage,
-  MichioKaku: fallbackImage,
-  lab2: fallbackImage,
-  Crash1: fallbackImage,
-  ControlRoom: fallbackImage,
-  Ralph: fallbackImage,
-  RichardDolan: fallbackImage,
-  ElizabethApril: fallbackImage,
-  Hangar: fallbackImage,
-  underwater: fallbackImage,
-  Report: fallbackImage,
+  "Tim-Burchett": ufo_timBurchett,
+  Lou: ufo_lou,
+  MichioKaku: ufo_michioKaku,
+  lab2: ufo_lab2,
+  Crash1: ufo_crash1,
+  ControlRoom: ufo_controlRoom,
+  Ralph: ufo_ralph,
+  RichardDolan: ufo_richardDolan,
+  ElizabethApril: ufo_elizabethApril,
+  Hangar: ufo_hangar,
+  underwater: ufo_underwater,
+  Report: ufo_report,
 };
 
 /** Merch image keys from mufon-ufo-revelations merchItems. Use fallback until product images exist. */
@@ -121,6 +133,21 @@ export const assets = {
     { id: "next_13", src: next_13 },
     { id: "next_14", src: next_14 },
     { id: "next_15", src: next_15 },
+  ],
+  /** Screen grabs for Accidental Truth: UFO Revelations (at_ufo_rev), in display order. */
+  screenGrabsAtUfoRev: [
+    { id: "Tim-Burchett", src: ufo_timBurchett },
+    { id: "Lou", src: ufo_lou },
+    { id: "MichioKaku", src: ufo_michioKaku },
+    { id: "lab2", src: ufo_lab2 },
+    { id: "Crash1", src: ufo_crash1 },
+    { id: "ControlRoom", src: ufo_controlRoom },
+    { id: "Ralph", src: ufo_ralph },
+    { id: "RichardDolan", src: ufo_richardDolan },
+    { id: "ElizabethApril", src: ufo_elizabethApril },
+    { id: "Hangar", src: ufo_hangar },
+    { id: "underwater", src: ufo_underwater },
+    { id: "Report", src: ufo_report },
   ],
 } as const;
 

@@ -5,6 +5,7 @@ import { WatchLinks } from "./watch-links";
 import { LegacyDescription } from "./legacy-description";
 import { ImminentBookCallout } from "./imminent-book-callout";
 import { DvdBlurayPromo } from "./dvd-bluray-promo";
+import { GalleryGrid } from "./gallery-grid";
 import { CastList } from "./cast-list";
 import { CrewList } from "./crew-list";
 import { AwardsLaurels } from "./awards-laurels";
@@ -29,6 +30,7 @@ export function LegacyCaseFile() {
         <div className="legacy-casefile__body">
           <LegacyHeroUfo />
           <WatchLinks />
+          <GalleryGrid />
           <LegacyDescription />
           <DvdBlurayPromo />
           <div className="legacy-casefile__split">

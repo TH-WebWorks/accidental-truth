@@ -12,6 +12,8 @@ const eslintConfig = defineConfig([
     "out/**",
     "build/**",
     "next-env.d.ts",
+    // Internal design/prototype sandboxes not shipped in production app flow:
+    "app/sections/**/design/**",
   ]),
 ]);
 
