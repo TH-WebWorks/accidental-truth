@@ -12,7 +12,7 @@
   --bg: #0b1016;
   --bg-2: #121921;
   --text: #e8edf2;
-  --muted: #8b99a6;
+  --muted: #b0bcc8;
   --border: rgba(124, 147, 166, 0.26);
   --orange: rgba(62, 169, 191, 0.12);
   --blue: rgba(62, 169, 191, 0.12);
@@ -36,7 +36,7 @@
   --tone-surface: #121921;
   --tone-surface-2: #18212b;
   --tone-text: #e8edf2;
-  --tone-muted: #8b99a6;
+  --tone-muted: #b0bcc8;
   --tone-border: rgba(124, 147, 166, 0.26);
   --tone-accent: #3ea9bf;
   --tone-accent-soft: rgba(62, 169, 191, 0.18);
@@ -44,8 +44,8 @@
   --section-pad-y-tight: clamp(2rem, 4vw, 3rem);
   --section-divider: rgba(124, 147, 166, 0.26);
   --section-divider-soft: rgba(124, 147, 166, 0.16);
-  --legacy-heading: rgba(232, 237, 242, 0.86);
-  --legacy-muted: rgba(232, 237, 242, 0.68);
+  --legacy-heading: rgba(232, 237, 242, 0.94);
+  --legacy-muted: rgba(232, 237, 242, 0.82);
   --content-width: 1440px;
   --content-width-wide: 1680px;
   --prose-width: 70ch;
@@ -304,7 +304,7 @@ button {
 .legacy-casefile__overviewLead {
   margin: 0;
   font-size: 1rem;
-  line-height: 1.65;
+  line-height: 1.7;
   color: var(--tone-muted);
 }
 
@@ -917,7 +917,7 @@ button {
 .sec-lead {
   margin: 0 0 0;
   font-size: 1.06rem;
-  line-height: 1.7;
+  line-height: 1.75;
   color: var(--muted);
   max-width: var(--prose-width);
 }
@@ -1032,7 +1032,7 @@ button {
   margin-top: var(--space);
   margin-bottom: var(--space);
   font-size: 0.98rem;
-  line-height: 1.6;
+  line-height: 1.65;
   text-transform: none;
   letter-spacing: 0;
 }
@@ -1168,7 +1168,7 @@ button {
   margin: 0 auto var(--space);
   padding: 0;
   font-size: 0.95rem;
-  line-height: 1.62;
+  line-height: 1.7;
   color: var(--muted);
   max-width: var(--prose-width);
   text-align: left;
@@ -1348,7 +1348,7 @@ button {
 .spotlight-synopsis {
   margin: 0;
   font-size: 1.05rem;
-  line-height: 1.7;
+  line-height: 1.75;
   color: var(--muted);
   max-width: var(--prose-width);
 }
@@ -1502,7 +1502,7 @@ button {
 .synopsis-body p {
   margin: 0;
   font-size: 1.04rem;
-  line-height: 1.72;
+  line-height: 1.75;
   color: #ededed;
   max-width: none;
   text-transform: none;
@@ -1511,7 +1511,7 @@ button {
 
 .synopsis-body p:first-child {
   font-size: 1.1rem;
-  line-height: 1.7;
+  line-height: 1.75;
   color: #ffffff;
 }
 

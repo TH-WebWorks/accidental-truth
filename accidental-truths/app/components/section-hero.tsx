@@ -35,7 +35,7 @@ export function SectionHero() {
           />
         </div>
         <div
-          className="absolute inset-0 bg-linear-to-b from-[#06090d]/45 via-[#06090d]/72 to-[#06090d]"
+          className="absolute inset-0 bg-linear-to-b from-[#06090d]/35 via-[#06090d]/55 to-[#06090d]"
           aria-hidden
         />
       </div>
