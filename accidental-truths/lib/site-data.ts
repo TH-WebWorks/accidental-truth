@@ -3,6 +3,8 @@
  * Update content here; layout and components read from this object.
  */
 
+import { getReleaseDescription, getReleaseLabel } from "./release";
+
 const MUFON_VIDEO = "https://www.mufontelevision.com/video/accidental-truth/";
 const TRAILER_VIMEO = "https://player.vimeo.com/video/896080484?dnt=1&app_id=122963";
 
@@ -68,14 +70,14 @@ export const siteData = {
 
   nextFilm: {
     title: "Accidental Truth: NEXT: Beyond UFO Disclosure",
-    hook: "Accidental Truth: NEXT: Beyond UFO Disclosure releases April 2026.",
+    hook: `Accidental Truth: NEXT: Beyond UFO Disclosure. ${getReleaseDescription()}`,
     heroKicker: "Accidental Truth: NEXT",
     heroPrimaryCtaLabel: "Watch clip",
     heroSecondaryCtaLabel: "Buy / Support",
     /** Resolve via assets.next.heroBg in lib/assets.ts */
     heroImageKey: "next.heroBg",
     runtime: "1:43:10",
-    release: "Releases April 2026.",
+    release: getReleaseLabel(),
     platform: "MUFON TV",
     producer: "Ron James Television",
     watchUrl: MUFON_VIDEO,
@@ -96,7 +98,7 @@ export const siteData = {
     galleryLead: "Stills from Accidental Truth: NEXT",
     galleryAltPrefix: "Accidental Truth: NEXT still",
     infoStrip: [
-      { label: "Release Date", value: "April" },
+      { label: "Release Date", value: getReleaseLabel() },
       { label: "Runtime", value: "1:43:10" },
       { label: "Director", value: "Ron James" },
       { label: "Distribution / Platform", value: "MUFON TV" },
@@ -221,7 +223,7 @@ export const siteData = {
     trailerUrl: TRAILER_VIMEO,
     trailerThumbnailUrl: "https://vumbnail.com/896080484.jpg",
     synopsis: [
-      "In April 2023, “Accidental Truth, UFO Revelations”, narrated by Matthew Modine, shocked the intelligence community and the public. Filmmaker Ron James met with Congressman Tim Burchett and revealed what years of investigations by MUFON and others have proven about the UFO cover-up.",
+      "In 2023, “Accidental Truth, UFO Revelations”, narrated by Matthew Modine, shocked the intelligence community and the public. Filmmaker Ron James met with Congressman Tim Burchett and revealed what years of investigations by MUFON and others have proven about the UFO cover-up.",
       "The US Government and private industries are in possession of non-human technology. You will be convinced through never-before-seen interviews, new evidence, and government insiders “accidentally” revealing the truth.",
     ],
     accordionSections: [
@@ -298,7 +300,7 @@ export const siteData = {
       signedCopyUrl: MUFON_VIDEO,
     },
     descriptionParagraphs: [
-      "In April 2023, \"Accidental Truth, UFO Revelations\", narrated by acclaimed actor Matthew Modine, shocked the intelligence community, the body politic, and the public. In 2021, filmmaker Ron James met with Congressman Tim Burchett and told him what years of investigations by MUFON and others have proven about the UFO cover-up. Around that time, Burchett led a storm of demands for UFO Disclosure in Washington DC and the world. It is the film that delivered the evidence and set the stage for the story that whistleblower David Grusch revealed to the world and to Congress.",
+      "In 2023, \"Accidental Truth, UFO Revelations\", narrated by acclaimed actor Matthew Modine, shocked the intelligence community, the body politic, and the public. In 2021, filmmaker Ron James met with Congressman Tim Burchett and told him what years of investigations by MUFON and others have proven about the UFO cover-up. Around that time, Burchett led a storm of demands for UFO Disclosure in Washington DC and the world. It is the film that delivered the evidence and set the stage for the story that whistleblower David Grusch revealed to the world and to Congress.",
       "This is the only UFO documentary ever mentioned in a congressional hearing by name.",
       "The US Government and private industries are in possession of non-human technology. They are engaged in programs to reverse engineer the technology and more. The story is true. You will be convinced through never before seen interviews, new evidence and government insiders \"accidentally\" revealing the truth through their sometimes mistaken words.",
       "\"Accidental Truth, UFO Revelations\" has won a stunning 24 film festival awards and been called, \"The most important UFO documentary ever made.\" An incredible cast of experts and insiders come together as never before to reveal the most important story in the history of mankind.",

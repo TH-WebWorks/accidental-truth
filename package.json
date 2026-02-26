@@ -5,6 +5,7 @@
   "scripts": {
     "dev": "cd accidental-truths && npx next dev",
     "build": "cd accidental-truths && npx next build",
-    "start": "cd accidental-truths && npx next start"
+    "start": "cd accidental-truths && npx next start",
+    "verify:share": "cd accidental-truths && npm run verify:share"
   }
 }

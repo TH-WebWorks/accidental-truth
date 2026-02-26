@@ -1,13 +1,14 @@
 import type { Metadata } from "next";
 import { caviar, panton } from "@/lib/fonts";
+import { defaultMetadata } from "@/lib/metadata";
+import { FilmStructuredData } from "./components/FilmStructuredData";
 import { SmoothScroll } from "./components/SmoothScroll";
 import "./globals.css";
 
-export const metadata: Metadata = {
-  title: "Accidental Truth: UFO Revelations",
-  description:
-    "Official one-page presentation for the documentary film Accidental Truth: UFO Revelations.",
-};
+export const revalidate = 0;
+export const dynamic = "force-dynamic";
+
+export const metadata: Metadata = defaultMetadata;
 
 export default function RootLayout({
   children,
@@ -23,6 +24,7 @@ export default function RootLayout({
           wireframeModeEnabled ? "wireframe-mode" : ""
         }`}
       >
+        <FilmStructuredData />
         <div>
           <SmoothScroll>{children}</SmoothScroll>
         </div>
