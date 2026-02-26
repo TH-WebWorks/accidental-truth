@@ -1,12 +1,13 @@
-import { mufonUfoRevelations } from "../../../lib/mufon-ufo-revelations";
+import { siteData } from "../../../lib/site-data";
 
-const { watchLinks } = mufonUfoRevelations;
+const legacy = siteData.originalFilm;
+const { watchLinks } = legacy;
 
 export function WatchLinks() {
   return (
     <div className="legacy-casefile__subsection">
       <div className="legacy-casefile__subsectionHead">
-        <h3 className="legacy-casefile__subsectionTitle">Where to Watch</h3>
+        <h3 className="legacy-casefile__subsectionTitle">{legacy.watchLinksHeading}</h3>
       </div>
       <div className="legacy-casefile__watchGrid">
         {watchLinks.map((link) => (

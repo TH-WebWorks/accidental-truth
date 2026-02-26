@@ -1,0 +1,9 @@
+#!/usr/bin/env bash
+set -e
+cd "$(dirname "$0")"
+
+echo "Building the app..."
+npm run build
+
+echo "Starting dev server (http://0.0.0.0:3000)..."
+npm run dev -- -H 0.0.0.0 -p 3000

@@ -1,4 +1,4 @@
-import { sectionIds } from "../../../lib/site-data";
+import { sectionIds, siteData } from "../../../lib/site-data";
 import { Container } from "../Container";
 import { LegacyHeroUfo } from "./legacy-hero";
 import { WatchLinks } from "./watch-links";
@@ -11,6 +11,8 @@ import { AwardsLaurels } from "./awards-laurels";
 import { MoreLikeThis } from "./more-like-this";
 import { HashtagsLine } from "./hashtags-line";
 
+const legacy = siteData.originalFilm;
+
 export function LegacyCaseFile() {
   return (
     <section
@@ -20,15 +22,14 @@ export function LegacyCaseFile() {
     >
       <Container>
         <div className="legacy-casefile__header">
-          <p className="legacy-casefile__kicker">Appendix</p>
-          <h2 className="legacy-casefile__title">Legacy Case File</h2>
+          <p className="legacy-casefile__kicker">{legacy.sectionKicker}</p>
+          <h2 className="legacy-casefile__title">{legacy.sectionHeading}</h2>
         </div>
 
         <div className="legacy-casefile__body">
           <LegacyHeroUfo />
           <WatchLinks />
           <LegacyDescription />
-          <ImminentBookCallout />
           <DvdBlurayPromo />
           <div className="legacy-casefile__split">
             <CastList />
@@ -37,6 +38,7 @@ export function LegacyCaseFile() {
           <AwardsLaurels />
           <MoreLikeThis />
           <HashtagsLine />
+          <ImminentBookCallout />
         </div>
       </Container>
     </section>

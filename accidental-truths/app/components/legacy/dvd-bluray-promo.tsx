@@ -1,12 +1,13 @@
-import { mufonUfoRevelations } from "../../../lib/mufon-ufo-revelations";
+import { siteData } from "../../../lib/site-data";
 
-const block = mufonUfoRevelations.dvdBluRayBlock;
+const legacy = siteData.originalFilm;
+const block = legacy.dvdBluRayBlock;
 
 export function DvdBlurayPromo() {
   return (
     <div id="dvd-bluray" className="legacy-casefile__subsection scroll-mt-24">
       <div className="legacy-casefile__subsectionHead">
-        <h3 className="legacy-casefile__subsectionTitle">DVD/Blu-ray + Bonus Features</h3>
+        <h3 className="legacy-casefile__subsectionTitle">{legacy.dvdHeading}</h3>
       </div>
       <div className="legacy-casefile__card">
         <h4 className="legacy-casefile__cardTitle">{block.title}</h4>

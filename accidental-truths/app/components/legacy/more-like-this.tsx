@@ -1,12 +1,13 @@
-import { mufonUfoRevelations } from "../../../lib/mufon-ufo-revelations";
+import { siteData } from "../../../lib/site-data";
 
-const { moreLikeThis } = mufonUfoRevelations;
+const legacy = siteData.originalFilm;
+const { moreLikeThis } = legacy;
 
 export function MoreLikeThis() {
   return (
     <div id="more-like-this" className="legacy-casefile__subsection scroll-mt-24">
       <div className="legacy-casefile__subsectionHead">
-        <h3 className="legacy-casefile__subsectionTitle">More Like This</h3>
+        <h3 className="legacy-casefile__subsectionTitle">{legacy.moreLikeThisHeading}</h3>
       </div>
       <ul className="legacy-casefile__mediaGrid">
         {moreLikeThis.map((item) => (

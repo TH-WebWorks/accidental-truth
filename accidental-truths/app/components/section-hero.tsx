@@ -32,7 +32,7 @@ export function SectionHero() {
       <div className="relative z-10 mx-auto w-full max-w-[1440px] px-4 sm:px-6 lg:px-8">
         <div className="max-w-4xl text-left">
           <p className="text-xs uppercase tracking-[0.14em] text-[var(--tone-muted)] mb-4">
-            Feature Priority: NEXT
+            {d.heroKicker}
           </p>
           <h1 className="text-4xl sm:text-5xl md:text-6xl font-bold text-[var(--tone-text)] tracking-tight max-w-3xl">
             {d.title}
@@ -45,7 +45,13 @@ export function SectionHero() {
               href={`#${sectionIds.trailer}`}
               className="inline-flex items-center justify-center min-h-[48px] px-8 py-3 text-sm font-medium uppercase tracking-wide bg-[var(--tone-accent)] text-[#031218] rounded hover:bg-[#54b9cc] transition-colors"
             >
-              Watch Trailer (Soon)
+              {d.heroPrimaryCtaLabel}
+            </a>
+            <a
+              href={`#${sectionIds.merch}`}
+              className="inline-flex items-center justify-center min-h-[48px] px-8 py-3 text-sm font-medium uppercase tracking-wide border border-[var(--tone-border)] text-[var(--tone-text)] rounded hover:bg-[var(--tone-surface-2)] transition-colors"
+            >
+              {d.heroSecondaryCtaLabel}
             </a>
           </div>
           <div className="mt-8 flex flex-wrap gap-3">

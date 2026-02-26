@@ -1,12 +1,13 @@
-import { mufonUfoRevelations } from "../../../lib/mufon-ufo-revelations";
+import { siteData } from "../../../lib/site-data";
 
-const { awardsBlock } = mufonUfoRevelations;
+const legacy = siteData.originalFilm;
+const { awardsBlock } = legacy;
 
 export function AwardsLaurels() {
   return (
     <div id="laurels" className="legacy-casefile__subsection scroll-mt-24">
       <div className="legacy-casefile__subsectionHead">
-        <h3 className="legacy-casefile__subsectionTitle">Awards / Laurels</h3>
+        <h3 className="legacy-casefile__subsectionTitle">{legacy.awardsHeading}</h3>
       </div>
       <p className="text-sm text-(--tone-muted) mb-1">{awardsBlock.heading}</p>
       <p className="text-sm text-(--tone-text) font-medium mb-5">{awardsBlock.subheading}</p>

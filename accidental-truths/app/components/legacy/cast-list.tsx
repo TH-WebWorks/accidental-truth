@@ -1,12 +1,13 @@
-import { mufonUfoRevelations } from "../../../lib/mufon-ufo-revelations";
+import { siteData } from "../../../lib/site-data";
 
-const { cast } = mufonUfoRevelations;
+const legacy = siteData.originalFilm;
+const { cast } = legacy;
 
 export function CastList() {
   return (
     <div id="cast" className="legacy-casefile__subsection scroll-mt-24">
       <div className="legacy-casefile__subsectionHead">
-        <h3 className="legacy-casefile__subsectionTitle">Cast</h3>
+        <h3 className="legacy-casefile__subsectionTitle">{legacy.castHeading}</h3>
       </div>
       <ul className="legacy-casefile__nameGrid">
         {cast.map((name) => (

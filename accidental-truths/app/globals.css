@@ -88,18 +88,20 @@ button {
 
 .site { min-height: 100vh; }
 
-/* Anchor targets: offset for in-page links */
+/* Anchor targets: offset for fixed header on in-page links */
+[id="top"],
+[id="story"],
 [id="trailer"],
 [id="gallery"],
-[id="original-synopsis"],
+[id="archive"],
+[id="original"],
 [id="dvd-bluray"],
 [id="cast"],
 [id="crew"],
 [id="laurels"],
-[id="press"],
-[id="merchandise"],
-[id="about"] {
-  scroll-margin-top: 1.5rem;
+[id="more-like-this"],
+[id="merch"] {
+  scroll-margin-top: 5.5rem;
 }
 
 /* ========== SectionShell (spec) ========== */

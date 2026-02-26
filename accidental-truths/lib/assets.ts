@@ -10,21 +10,21 @@ import posterAtNext from "../assets/poster_at_next.webp";
 import posterAtUfoRevelations from "../assets/poster_at_ufo_revelations.webp";
 import ronLou from "../assets/ron_lou.jpg";
 
-import screenGrab1 from "../assets/screen_grabs/at_next/1.webp";
-import screenGrab2 from "../assets/screen_grabs/at_next/2.webp";
-import screenGrab3 from "../assets/screen_grabs/at_next/3.webp";
-import screenGrab4 from "../assets/screen_grabs/at_next/4.webp";
-import screenGrab5 from "../assets/screen_grabs/at_next/5.webp";
-import screenGrab6 from "../assets/screen_grabs/at_next/6.webp";
-import screenGrab7 from "../assets/screen_grabs/at_next/7.webp";
-import screenGrab8 from "../assets/screen_grabs/at_next/8.webp";
-import screenGrab9 from "../assets/screen_grabs/at_next/9.webp";
-import screenGrab10 from "../assets/screen_grabs/at_next/10.webp";
-import screenGrab11 from "../assets/screen_grabs/at_next/11.webp";
-import screenGrab12 from "../assets/screen_grabs/at_next/12.webp";
-import screenGrab13 from "../assets/screen_grabs/at_next/13.webp";
-import screenGrab14 from "../assets/screen_grabs/at_next/14.webp";
-import screenGrab15 from "../assets/screen_grabs/at_next/15.webp";
+import next_01 from "../assets/screen_grabs/at_next/1.webp";
+import next_02 from "../assets/screen_grabs/at_next/2.webp";
+import next_03 from "../assets/screen_grabs/at_next/3.webp";
+import next_04 from "../assets/screen_grabs/at_next/4.webp";
+import next_05 from "../assets/screen_grabs/at_next/5.webp";
+import next_06 from "../assets/screen_grabs/at_next/6.webp";
+import next_07 from "../assets/screen_grabs/at_next/7.webp";
+import next_08 from "../assets/screen_grabs/at_next/8.webp";
+import next_09 from "../assets/screen_grabs/at_next/9.webp";
+import next_10 from "../assets/screen_grabs/at_next/10.webp";
+import next_11 from "../assets/screen_grabs/at_next/11.webp";
+import next_12 from "../assets/screen_grabs/at_next/12.webp";
+import next_13 from "../assets/screen_grabs/at_next/13.webp";
+import next_14 from "../assets/screen_grabs/at_next/14.webp";
+import next_15 from "../assets/screen_grabs/at_next/15.webp";
 
 /** Fallback image when a gallery/merch asset is not yet in assets. Use local only. */
 const fallbackImage = posterAtUfoRevelations;
@@ -68,8 +68,7 @@ const galleryMap: Record<GalleryKey, typeof fallbackImage> = {
 };
 
 /** Merch image keys from mufon-ufo-revelations merchItems. Use fallback until product images exist. */
-const merchKeys = ["tshirt", "mug", "mousepad", "poster", "dvd"] as const;
-type MerchKey = (typeof merchKeys)[number];
+type MerchKey = "tshirt" | "mug" | "mousepad" | "poster" | "dvd";
 
 const merchMap: Record<MerchKey, typeof fallbackImage> = {
   tshirt: fallbackImage,
@@ -107,21 +106,21 @@ export const assets = {
   galleryKeys,
   /** Screen grabs for Accidental Truth: NEXT (at_next), in display order. */
   screenGrabsAtNext: [
-    screenGrab1,
-    screenGrab2,
-    screenGrab3,
-    screenGrab4,
-    screenGrab5,
-    screenGrab6,
-    screenGrab7,
-    screenGrab8,
-    screenGrab9,
-    screenGrab10,
-    screenGrab11,
-    screenGrab12,
-    screenGrab13,
-    screenGrab14,
-    screenGrab15,
+    { id: "next_01", src: next_01 },
+    { id: "next_02", src: next_02 },
+    { id: "next_03", src: next_03 },
+    { id: "next_04", src: next_04 },
+    { id: "next_05", src: next_05 },
+    { id: "next_06", src: next_06 },
+    { id: "next_07", src: next_07 },
+    { id: "next_08", src: next_08 },
+    { id: "next_09", src: next_09 },
+    { id: "next_10", src: next_10 },
+    { id: "next_11", src: next_11 },
+    { id: "next_12", src: next_12 },
+    { id: "next_13", src: next_13 },
+    { id: "next_14", src: next_14 },
+    { id: "next_15", src: next_15 },
   ],
 } as const;
 

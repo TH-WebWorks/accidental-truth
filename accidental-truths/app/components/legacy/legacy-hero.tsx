@@ -1,10 +1,10 @@
 "use client";
 
 import { useMemo, useRef, useState } from "react";
-import { mufonUfoRevelations } from "../../../lib/mufon-ufo-revelations";
 import { siteData } from "../../../lib/site-data";
 
-const { metadata } = mufonUfoRevelations;
+const legacy = siteData.originalFilm;
+const { metadata } = legacy;
 const legacyTrailerUrl = siteData.originalFilm.trailerUrl;
 const legacyTrailerThumb = siteData.originalFilm.trailerThumbnailUrl;
 
@@ -28,7 +28,7 @@ export function LegacyHeroUfo() {
   return (
     <div className="legacy-casefile__subsection">
       <div className="legacy-casefile__subsectionHead">
-        <h3 className="legacy-casefile__subsectionTitle">Accidental Truth: UFO Revelations</h3>
+        <h3 className="legacy-casefile__subsectionTitle">{legacy.title}</h3>
       </div>
 
       <div className="legacy-casefile__overviewCard">

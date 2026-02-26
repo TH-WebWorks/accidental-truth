@@ -37,9 +37,20 @@ function NavLinks({
 }
 
 export function SiteHeader() {
+  const canUseWireframe =
+    process.env.NODE_ENV !== "production" ||
+    (typeof window !== "undefined" &&
+      new URLSearchParams(window.location.search).get("wireframe") === "1");
   const [scrolled, setScrolled] = useState(false);
   const [menuOpen, setMenuOpen] = useState(false);
-  const [wireframeMode, setWireframeMode] = useState(false);
+  const [wireframeMode, setWireframeMode] = useState(() => {
+    if (typeof window === "undefined") return false;
+    const hasWireframeQuery =
+      new URLSearchParams(window.location.search).get("wireframe") === "1";
+    const enabled = process.env.NODE_ENV !== "production" || hasWireframeQuery;
+    if (!enabled) return false;
+    return window.localStorage.getItem("wireframe-mode-enabled") === "true";
+  });
 
   useEffect(() => {
     const handleScroll = () => setScrolled(window.scrollY > 60);
@@ -48,13 +59,11 @@ export function SiteHeader() {
   }, []);
 
   useEffect(() => {
-    const saved = window.localStorage.getItem("wireframe-mode-enabled");
-    const enabled = saved === "true";
-    setWireframeMode(enabled);
-    document.body.classList.toggle("wireframe-mode", enabled);
-  }, []);
+    document.body.classList.toggle("wireframe-mode", canUseWireframe && wireframeMode);
+  }, [canUseWireframe, wireframeMode]);
 
   const handleWireframeToggle = () => {
+    if (!canUseWireframe) return;
     const next = !wireframeMode;
     setWireframeMode(next);
     document.body.classList.toggle("wireframe-mode", next);
@@ -85,27 +94,31 @@ export function SiteHeader() {
             className="hidden md:flex items-center gap-8"
           >
             <NavLinks onLinkClick={() => setMenuOpen(false)} />
-            <button
-              type="button"
-              onClick={handleWireframeToggle}
-              aria-label="Toggle wireframe mode"
-              aria-pressed={wireframeMode}
-              className="inline-flex items-center gap-2 text-xs uppercase tracking-wide text-[var(--tone-muted)] hover:text-[var(--tone-text)] transition-colors"
-            >
-              <span>Wireframe</span>
-              <span
-                className={`relative h-5 w-10 rounded-full border border-[var(--tone-border)] transition-colors ${
-                  wireframeMode ? "bg-[var(--tone-accent)]" : "bg-[var(--tone-surface)]"
-                }`}
-                aria-hidden
+            {canUseWireframe && (
+              <button
+                type="button"
+                onClick={handleWireframeToggle}
+                aria-label="Toggle wireframe mode"
+                aria-pressed={wireframeMode}
+                className="inline-flex items-center gap-2 text-xs uppercase tracking-wide text-[var(--tone-muted)] hover:text-[var(--tone-text)] transition-colors"
               >
+                <span>Wireframe</span>
                 <span
-                  className={`absolute top-0.5 h-3.5 w-3.5 rounded-full bg-white transition-transform ${
-                    wireframeMode ? "translate-x-5" : "translate-x-1"
+                  className={`relative h-5 w-10 rounded-full border border-[var(--tone-border)] transition-colors ${
+                    wireframeMode
+                      ? "bg-[var(--tone-accent)]"
+                      : "bg-[var(--tone-surface)]"
                   }`}
-                />
-              </span>
-            </button>
+                  aria-hidden
+                >
+                  <span
+                    className={`absolute top-0.5 h-3.5 w-3.5 rounded-full bg-white transition-transform ${
+                      wireframeMode ? "translate-x-5" : "translate-x-1"
+                    }`}
+                  />
+                </span>
+              </button>
+            )}
             <a
               href={CTA.href.startsWith("#") ? CTA.href : CTA.href}
               target={CTA.href.startsWith("#") ? undefined : "_blank"}
@@ -149,27 +162,31 @@ export function SiteHeader() {
           aria-label="Mobile"
         >
           <NavLinks onNavigate={() => setMenuOpen(false)} onLinkClick={() => setMenuOpen(false)} />
-          <button
-            type="button"
-            onClick={handleWireframeToggle}
-            aria-label="Toggle wireframe mode"
-            aria-pressed={wireframeMode}
-            className="inline-flex items-center gap-3 text-sm uppercase tracking-wide text-[var(--tone-muted)]"
-          >
-            <span>Wireframe</span>
-            <span
-              className={`relative h-6 w-11 rounded-full border border-[var(--tone-border)] transition-colors ${
-                wireframeMode ? "bg-[var(--tone-accent)]" : "bg-[var(--tone-surface)]"
-              }`}
-              aria-hidden
+          {canUseWireframe && (
+            <button
+              type="button"
+              onClick={handleWireframeToggle}
+              aria-label="Toggle wireframe mode"
+              aria-pressed={wireframeMode}
+              className="inline-flex items-center gap-3 text-sm uppercase tracking-wide text-[var(--tone-muted)]"
             >
+              <span>Wireframe</span>
               <span
-                className={`absolute top-[3px] h-4 w-4 rounded-full bg-white transition-transform ${
-                  wireframeMode ? "translate-x-5" : "translate-x-1"
+                className={`relative h-6 w-11 rounded-full border border-[var(--tone-border)] transition-colors ${
+                  wireframeMode
+                    ? "bg-[var(--tone-accent)]"
+                    : "bg-[var(--tone-surface)]"
                 }`}
-              />
-            </span>
-          </button>
+                aria-hidden
+              >
+                <span
+                  className={`absolute top-[3px] h-4 w-4 rounded-full bg-white transition-transform ${
+                    wireframeMode ? "translate-x-5" : "translate-x-1"
+                  }`}
+                />
+              </span>
+            </button>
+          )}
           <a
             href={CTA.href.startsWith("#") ? CTA.href : CTA.href}
             target={CTA.href.startsWith("#") ? undefined : "_blank"}

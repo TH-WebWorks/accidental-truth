@@ -1,12 +1,13 @@
-import { mufonUfoRevelations } from "../../../lib/mufon-ufo-revelations";
+import { siteData } from "../../../lib/site-data";
 
-const { descriptionParagraphs } = mufonUfoRevelations;
+const legacy = siteData.originalFilm;
+const { descriptionParagraphs } = legacy;
 
 export function LegacyDescription() {
   return (
     <div className="legacy-casefile__subsection scroll-mt-24">
       <div className="legacy-casefile__subsectionHead">
-        <h3 className="legacy-casefile__subsectionTitle">Film Description</h3>
+        <h3 className="legacy-casefile__subsectionTitle">{legacy.descriptionHeading}</h3>
       </div>
       <div className="legacy-casefile__prose">
         {descriptionParagraphs.map((p, i) => (

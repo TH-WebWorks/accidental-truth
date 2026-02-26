@@ -1,6 +1,6 @@
-import { mufonUfoRevelations } from "../../../lib/mufon-ufo-revelations";
+import { siteData } from "../../../lib/site-data";
 
-const block = mufonUfoRevelations.imminentBookBlock;
+const block = siteData.originalFilm.imminentBookBlock;
 
 export function ImminentBookCallout() {
   return (
