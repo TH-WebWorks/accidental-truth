@@ -1,5 +1,6 @@
 import { SiteHeader } from "./components/site-header";
 import { LegacyCaseFile } from "./components/legacy";
+import { AboutSectionBlock } from "./sections/AboutSection";
 import { SiteFooterSection } from "./sections/SiteFooter";
 import { sectionRegistry } from "../lib/sections/section-registry";
 import { sectionIds } from "../lib/site-data";
@@ -24,6 +25,7 @@ export default function Home() {
             </div>
           );
         })}
+        <AboutSectionBlock />
       </main>
       <SiteFooterSection />
     </>
