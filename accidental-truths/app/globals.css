@@ -89,6 +89,11 @@ button {
   @apply font-heading;
 }
 
+.hero-title {
+  text-shadow: 0 3px 22px rgba(0, 0, 0, 0.75);
+  -webkit-text-stroke: 1px rgba(0, 0, 0, 0.35);
+}
+
 .site { min-height: 100vh; }
 
 /* Anchor targets: offset for fixed header on in-page links */
