@@ -12,7 +12,8 @@
   --bg: #0b1016;
   --bg-2: #121921;
   --text: #e8edf2;
-  --muted: #b0bcc8;
+  /* Raised from #b0bcc8 for mobile readability (Ron feedback: gray-on-black too low contrast) */
+  --muted: #c8d1d9;
   --border: rgba(124, 147, 166, 0.26);
   --orange: rgba(62, 169, 191, 0.12);
   --blue: rgba(62, 169, 191, 0.12);
@@ -36,7 +37,8 @@
   --tone-surface: #121921;
   --tone-surface-2: #18212b;
   --tone-text: #e8edf2;
-  --tone-muted: #b0bcc8;
+  /* Raised from #b0bcc8 for mobile readability (Ron feedback: gray-on-black too low contrast) */
+  --tone-muted: #c8d1d9;
   --tone-border: rgba(124, 147, 166, 0.26);
   --tone-accent: #3ea9bf;
   --tone-accent-soft: rgba(62, 169, 191, 0.18);
@@ -46,7 +48,8 @@
   --section-divider-soft: rgba(124, 147, 166, 0.16);
   --legacy-heading: rgba(232, 237, 242, 0.94);
   --legacy-muted: rgba(232, 237, 242, 0.82);
-  --content-width: 1440px;
+  /* Widened from 1440px to reduce black void (Ron feedback) */
+  --content-width: 1560px;
   --content-width-wide: 1680px;
   --prose-width: 70ch;
 }
@@ -260,6 +263,57 @@ button {
   color: var(--legacy-heading);
 }
 
+/* Reusable legacy Film Description pattern */
+.film-copy-section {
+  padding-top: clamp(1.75rem, 3.5vw, 2.5rem);
+  padding-bottom: clamp(1.25rem, 2.8vw, 1.85rem);
+  border-top: 1px solid var(--section-divider-soft);
+  border-bottom: 1px solid var(--section-divider-soft);
+}
+
+.film-copy-section--no-top-divider {
+  border-top: 0;
+  padding-top: 0;
+}
+
+.film-copy-section--compact-bottom {
+  padding-bottom: clamp(0.9rem, 2.2vw, 1.35rem);
+}
+
+.film-copy-section__head {
+  margin: 0 0 0.95rem;
+}
+
+.film-copy-section__title {
+  margin: 0;
+  font-size: clamp(1rem, 2.1vw, 1.25rem);
+  font-weight: 550;
+  letter-spacing: 0;
+  color: var(--legacy-heading);
+}
+
+.film-copy-section__intro {
+  margin: 0.45rem 0 0;
+  max-width: 70ch;
+  font-size: 0.95rem;
+  line-height: 1.7;
+  color: var(--tone-muted);
+}
+
+.film-copy-section__prose {
+  max-width: var(--prose-width);
+  display: grid;
+  gap: 1.35rem;
+}
+
+.film-copy-section__paragraph {
+  margin: 0;
+  font-size: 1rem;
+  line-height: 1.85;
+  letter-spacing: 0.003em;
+  color: var(--tone-muted);
+}
+
 .legacy-casefile__overviewCard {
   border: 1px solid var(--tone-border);
   border-radius: 14px;
@@ -321,15 +375,15 @@ button {
 }
 
 .legacy-casefile__watchCard {
-  display: flex;
-  align-items: flex-start;
-  justify-content: space-between;
-  gap: 0.75rem;
-  min-height: 46px;
-  padding: 0.85rem 1rem;
-  border-radius: 12px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  min-height: 52px;
+  padding: 0.75rem 1.25rem;
+  border-radius: 10px;
   border: 1px solid var(--tone-border);
-  background: rgba(255, 255, 255, 0.02);
+  background: var(--tone-surface);
   color: var(--tone-text);
   text-decoration: none;
   text-align: center;
@@ -342,7 +396,7 @@ button {
 
 .legacy-casefile__watchCard:hover {
   border-color: rgba(255, 255, 255, 0.24);
-  background: rgba(255, 255, 255, 0.04);
+  background: var(--tone-surface-2);
 }
 
 .legacy-casefile__watchLabel {

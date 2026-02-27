@@ -31,7 +31,7 @@ export function GalleryGrid() {
           Stills from Accidental Truth: UFO Revelations.
         </p>
 
-        <ul className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-4 list-none p-0 m-0">
+        <ul className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-3 xl:gap-2.5 list-none p-0 m-0">
           {assets.screenGrabsAtUfoRev.map((img, index) => (
             <li
               key={img.id}
@@ -47,7 +47,7 @@ export function GalleryGrid() {
                   src={img.src}
                   alt={`UFO Revelations still ${img.id}`}
                   fill
-                  sizes="(max-width: 640px) 50vw, (max-width: 768px) 33vw, 25vw"
+                  sizes="(max-width: 640px) 50vw, (max-width: 768px) 33vw, (min-width: 1280px) 23vw, 25vw"
                   className="object-cover transition-transform duration-200 group-hover:scale-[1.03]"
                 />
               </button>

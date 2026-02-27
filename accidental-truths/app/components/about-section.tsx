@@ -22,8 +22,8 @@ export function AboutSection() {
           </h2>
         </div>
 
-        <div className="grid gap-6 lg:grid-cols-[minmax(0,1.05fr)_minmax(0,0.95fr)]">
-          <article className="rounded-xl border border-[var(--tone-border)] bg-white/5 p-6 sm:p-8">
+        <div className="grid gap-6 lg:grid-cols-[minmax(0,1.1fr)_minmax(0,0.9fr)]">
+          <article className="rounded-xl border border-[var(--tone-border)] bg-white/[0.07] p-6 sm:p-8 shadow-[0_4px_20px_rgba(0,0,0,0.28)]">
             <div className="mb-5 flex items-center gap-4">
               <div className="relative h-20 w-20 overflow-hidden rounded-full border border-[var(--tone-border)] bg-white/10">
                 <Image
@@ -42,12 +42,12 @@ export function AboutSection() {
               </div>
             </div>
 
-            <p className="leading-relaxed text-[var(--tone-muted)]">{producerBio}</p>
+            <p className="leading-relaxed text-[var(--tone-muted)] text-[0.9375rem] sm:text-base">{producerBio}</p>
           </article>
 
-          <article className="rounded-xl border border-[var(--tone-border)] bg-white/5 p-6 sm:p-8">
+          <article className="rounded-xl border border-[var(--tone-border)] bg-white/[0.07] p-6 sm:p-8 shadow-[0_4px_20px_rgba(0,0,0,0.28)]">
             <h3 className="text-base font-semibold text-[var(--tone-text)]">Project Mission</h3>
-            <p className="mt-3 leading-relaxed text-[var(--tone-muted)]">{mission}</p>
+            <p className="mt-3 leading-relaxed text-[var(--tone-muted)] text-[0.9375rem] sm:text-base">{mission}</p>
 
             <div className="mt-6 grid grid-cols-2 gap-3">
               <div className="rounded-lg border border-[var(--tone-border)] bg-[var(--tone-base)] p-3">

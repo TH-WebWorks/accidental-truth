@@ -57,7 +57,7 @@ export function TrailerSynopsis({
     <section
       id={id}
       data-section={id}
-      className="flow-section bg-[var(--tone-base)] border-b border-[var(--tone-border)] scroll-mt-24"
+      className="flow-section bg-[var(--tone-base)] border-y border-[var(--tone-border)] scroll-mt-24 pt-[clamp(2rem,5vw,4.5rem)]!"
     >
       <Container>
         <div className="mx-auto mb-8 max-w-4xl text-center">
@@ -72,7 +72,7 @@ export function TrailerSynopsis({
           </p>
         </div>
 
-        <div className="max-w-5xl mx-auto">
+        <div className="max-w-6xl mx-auto">
           {embedUrl ? (
             <div
               className="relative aspect-video w-full overflow-hidden rounded-xl border border-[var(--tone-border)] bg-[var(--tone-surface)] shadow-[0_16px_36px_rgba(0,0,0,0.36)]"

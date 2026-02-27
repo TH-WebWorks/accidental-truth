@@ -20,7 +20,7 @@ export default function RootLayout({
   return (
     <html lang="en" className={`${panton.variable} ${caviar.variable}`}>
       <body
-        className={`min-h-dvh bg-[var(--tone-base)] text-[var(--tone-text)] antialiased font-body ${
+        className={`min-h-dvh overflow-x-hidden bg-[var(--tone-base)] text-[var(--tone-text)] antialiased font-body ${
           wireframeModeEnabled ? "wireframe-mode" : ""
         }`}
       >

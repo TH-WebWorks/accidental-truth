@@ -9,7 +9,7 @@ export function SectionHero() {
     <section
       id={sectionIds.top}
       data-section={sectionIds.top}
-      className="flow-section relative overflow-hidden scroll-mt-0 border-b border-[var(--tone-border)] md:min-h-dvh md:flex md:flex-col md:justify-center md:pt-24 lg:pt-28"
+      className="flow-section relative overflow-hidden scroll-mt-0 border-b border-[var(--tone-border)] md:flex md:flex-col md:justify-center md:pt-20 lg:pt-24 md:min-h-[68vh] !pb-8 sm:!pb-10 md:!pb-12"
     >
       {/* Mobile hero poster: full image visible, no clipping */}
       <div className="relative md:hidden">
@@ -35,12 +35,12 @@ export function SectionHero() {
           />
         </div>
         <div
-          className="absolute inset-0 bg-linear-to-b from-[#06090d]/35 via-[#06090d]/55 to-[#06090d]"
+          className="absolute inset-0 bg-linear-to-b from-[#06090d]/35 via-[#06090d]/55 to-[#06090d]/95"
           aria-hidden
         />
       </div>
 
-      <div className="relative z-10 mx-auto w-full max-w-[1440px] px-4 py-8 sm:px-6 md:py-0 lg:px-8">
+      <div className="relative z-10 mx-auto w-full max-w-[1560px] px-4 py-8 sm:px-6 md:pb-0 md:pt-6 lg:pt-8 lg:px-8 xl:px-12">
         <div className="mx-auto max-w-4xl rounded-xl border border-[var(--tone-border)] bg-[var(--tone-surface)]/85 p-5 text-center backdrop-blur-[1px] sm:p-7 md:mx-0 md:max-w-4xl md:border-0 md:bg-transparent md:p-0 md:text-left md:backdrop-blur-0">
           <p className="text-xs uppercase tracking-[0.14em] text-[var(--tone-muted)] mb-4">
             {d.heroKicker}

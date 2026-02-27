@@ -60,7 +60,8 @@ Label/value contrast improved via token changes: all uses of `--tone-muted` and 
 ## WCAG AA Compliance
 
 - **Primary text** (`--text`, `--tone-text`): `#e8edf2` on `#0b1016` ≈ 12:1  
-- **Secondary/muted text** (updated): `#b0bcc8` on `#0b1016` ≈ 6.5:1 (meets AA 4.5:1)
+- **Secondary/muted text** (2025-02 pass): `#b0bcc8` on `#0b1016` ≈ 6.5:1 (meets AA 4.5:1)
+- **Secondary/muted text** (2025-02 Ron feedback): `#c8d1d9` — further lightened for mobile readability (gray-on-black too low contrast)
 
 ---
 
@@ -68,3 +69,22 @@ Label/value contrast improved via token changes: all uses of `--tone-muted` and 
 
 - `accidental-truths/app/globals.css` — token and line-height updates  
 - `accidental-truths/app/components/section-hero.tsx` — hero overlay gradient
+
+---
+
+## 2025-02 Ron Feedback Pass
+
+### 1. Hero Above-the-Fold Fix
+- Hero: `md:min-h-dvh` → `md:min-h-[68vh]` (content-driven, no full-viewport dead zone)
+- Reduced hero bottom padding: `!pb-8 sm:!pb-10 md:!pb-12`
+- Story section ("About the film"): reduced top padding `!pt-8 sm:!pt-10 md:!pt-12` to pull content up ~40–60px
+
+### 2. Readability (Mobile)
+- `--muted` and `--tone-muted`: `#b0bcc8` → `#c8d1d9` for better contrast on dark backgrounds
+- About section body copy: slight base font-size tweak for mobile legibility
+
+### 3. Layout Width / Black Void
+- `--content-width`: 1440px → 1560px
+- Container: `max-w-[1440px]` → `max-w-[1560px]`, added `xl:px-12`
+- StorySoFar grid: `1.15fr/0.85fr` → `1.1fr/0.9fr` for better column balance
+- About section grid: same `1.1fr/0.9fr` ratio
